@@ -2593,8 +2593,7 @@ paths:
           format: "uuid"
         description: Client Identifier
 #=====Assessment Result  API Docuementation End ============================
-#=====Event API Docuementation Begins ============================
-  '/clients/{clientId}/enrollments/{enrollmentId}/events':
+  '/clients/{clientId}/enrollments/{enrollmentId}/currentLivingSituations':
     get:
       responses:
         '200':
@@ -2603,23 +2602,23 @@ paths:
             application/json:
               schema:
                 example:
-                    event:
+                    currentLivingSituation:
                       pagination:
                         from: 0
                         returned: 1
                         total: 1
                         maximum: 30
                         sort: {}
-                      events:
-                        - eventId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                      currentLivingSituations:
+                        - currentLivingSituationId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
                           enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                          clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                          eventDate: 2019-01-01
-                          resultDate: 2019-01-01
-                          locationcrisisorphhousing: 1
-                          referralResult: 1
-                          event: 2
-                          referralCaseManageAfter: 1
+                          livingSituation: 1
+                          verifiedBy: 1
+                          locationdetails: 1
+                          subsequentresidence: 2
+                          resourcestoobtain: 1
+                          movedtwoormore: 1
+                          currentLivingSituation: 2
         '400':
           description: Bad Request   The request was invalid or cannot be served.
         '403':
@@ -2631,11 +2630,11 @@ paths:
         '500':
           description: Internal Server Error
       description: >-
-        Searches for event.  Returns a list of event ids,
+        Searches for currentLivingSituation.  Returns a list of currentLivingSituation ids,
         based on the query parameters sent.  The query parameters are
         cumulative, so each additional query parameter narrows the search down
         further.
-      operationId: GET_clients-clientId-enrollments-enrollmentId-events
+      operationId: GET_clients-clientId-enrollments-enrollmentId-currentLivingSituations
 
     post:
       responses:
@@ -2645,16 +2644,17 @@ paths:
             application/json:
               schema:
                 example:
-                  event:
-                    eventId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                  currentLivingSituation:
+                    currentLivingSituationId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
                     enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
                     clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                    eventDate: 2019-01-01
-                    resultDate: 2019-01-01
-                    locationcrisisorphhousing: 1
-                    referralResult: 1
-                    event: 2
-                    referralCaseManageAfter: 1
+                    livingSituation: 1
+                    verifiedBy: 1
+                    locationdetails: 1
+                    subsequentresidence: 2
+                    resourcestoobtain: 1
+                    movedtwoormore: 1
+                    currentLivingSituation: 2
         '400':
           description: Bad Request   The request was invalid or cannot be served.
         '401':
@@ -2670,23 +2670,24 @@ paths:
         '500':
           description: Internal Server Error.
       description: |
-        Add an event
-      operationId: POST_clients-clientId-enrollments-enrollmentId-event
+        Add an currentLivingSituation
+      operationId: POST_clients-clientId-enrollments-enrollmentId-currentLivingSituation
       requestBody:
         content:
           application/json:
             schema:
               example:
-                  event:
-                    eventId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                  currentLivingSituation:
+                    currentLivingSituationId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
                     enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
                     clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                    eventDate: 2019-01-01
-                    resultDate: 2019-01-01
-                    locationcrisisorphhousing: 1
-                    referralResult: 1
-                    event: 2
-                    referralCaseManageAfter: 1
+                    livingSituation: 1
+                    verifiedBy: 1
+                    locationdetails: 1
+                    subsequentresidence: 2
+                    resourcestoobtain: 1
+                    movedtwoormore: 1
+                    currentLivingSituation: 2
         required: true
     parameters:
       - name: enrollmentId
@@ -2703,7 +2704,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/events/{eventId}':
+  '/clients/{clientId}/enrollments/{enrollmentId}/currentLivingSituations/{currentLivingSituationId}':
     get:
       responses:
         '200':
@@ -2712,16 +2713,17 @@ paths:
             application/json:
               schema:
                 example:
-                    event:
-                      eventId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    currentLivingSituation:
+                      currentLivingSituationId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
                       enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
                       clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                      eventDate: 2019-01-01
-                      resultDate: 2019-01-01
-                      locationcrisisorphhousing: 1
-                      referralResult: 1
-                      event: 2
-                      referralCaseManageAfter: 1
+                      livingSituation: 1
+                      verifiedBy: 1
+                      locationdetails: 1
+                      subsequentresidence: 2
+                      resourcestoobtain: 1
+                      movedtwoormore: 1
+                      currentLivingSituation: 2
         '400':
           description: Bad Request   The request was invalid or cannot be served.
         '401':
@@ -2734,9 +2736,9 @@ paths:
           description: Not found   There is no resource behind the URI.
         '500':
           description: Internal Server Error
-      description: Gets an event using a URI resource parameter/ID.
+      description: Gets an currentLivingSituation using a URI resource parameter/ID.
       operationId: >-
-        GET_clients-clientId-enrollments-enrollmentId-events-eventId
+        GET_clients-clientId-enrollments-enrollmentId-currentLivingSituations-currentLivingSituationId
     put:
       responses:
         '200':
@@ -2756,25 +2758,26 @@ paths:
         '500':
           description: Internal Server Error.
       description: >-
-        Updates a specific event specified by the URI resource
+        Updates a specific currentLivingSituation specified by the URI resource
         parameter/ID.
       operationId: >-
-        PUT_clients-clientId-enrollments-enrollmentId-events-eventId
+        PUT_clients-clientId-enrollments-enrollmentId-currentLivingSituations-currentLivingSituationId
       requestBody:
         content:
           application/json:
             schema:
               example:
-                  event:
-                    eventId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                  currentLivingSituation:
+                    currentLivingSituationId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
                     enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
                     clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                    eventDate: 2019-01-01
-                    resultDate: 2019-01-01
-                    locationcrisisorphhousing: 1
-                    referralResult: 1
-                    event: 2
-                    referralCaseManageAfter: 1
+                    livingSituation: 1
+                    verifiedBy: 1
+                    locationdetails: 1
+                    subsequentresidence: 2
+                    resourcestoobtain: 1
+                    movedtwoormore: 1
+                    currentLivingSituation: 2
         required: true
     delete:
       responses:
@@ -2793,18 +2796,18 @@ paths:
         '500':
           description: Internal Server Error.
       description: >-
-        Deletes a specific event specified by the URI resource
+        Deletes a specific currentLivingSituation specified by the URI resource
         parameter/ID.
       operationId: >-
-        DELETE_clients-clientId-enrollments-enrollmentId-events-eventId
+        DELETE_clients-clientId-enrollments-enrollmentId-currentLivingSituations-currentLivingSituationId
     parameters:
-      - name: eventId
+      - name: currentLivingSituationId
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
-        description: event Identifier
+        description: currentLivingSituation Identifier
       - name: enrollmentId
         in: path
         required: true
@@ -2819,7 +2822,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-#=====Event API Docuementation End ============================
+#=====Current Living Situation  API Docuementation End ============================
   '/clients/{clientId}/enrollments/{enrollmentId}/employments':
     get:
       responses:
