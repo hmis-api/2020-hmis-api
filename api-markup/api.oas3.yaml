@@ -2593,6 +2593,234 @@ paths:
           format: "uuid"
         description: Client Identifier
 #=====Assessment Result  API Docuementation End ============================
+#=====Event API Docuementation Begins ============================
+  '/clients/{clientId}/enrollments/{enrollmentId}/events':
+    get:
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    event:
+                      pagination:
+                        from: 0
+                        returned: 1
+                        total: 1
+                        maximum: 30
+                        sort: {}
+                      events:
+                        - eventId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                          enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          eventDate: 2019-01-01
+                          resultDate: 2019-01-01
+                          locationcrisisorphhousing: 1
+                          referralResult: 1
+                          event: 2
+                          referralCaseManageAfter: 1
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for event.  Returns a list of event ids,
+        based on the query parameters sent.  The query parameters are
+        cumulative, so each additional query parameter narrows the search down
+        further.
+      operationId: GET_clients-clientId-enrollments-enrollmentId-events
+
+    post:
+      responses:
+        '201':
+          description: OK - New resource has been created.
+          content:
+            application/json:
+              schema:
+                example:
+                  event:
+                    eventId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    eventDate: 2019-01-01
+                    resultDate: 2019-01-01
+                    locationcrisisorphhousing: 1
+                    referralResult: 1
+                    event: 2
+                    referralCaseManageAfter: 1
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            access is not allowed.
+        '404':
+          description: Not Found   There is no resource behind the URI.
+        '422':
+          description: Unprocessable Entity - Request body is incorrect.
+        '500':
+          description: Internal Server Error.
+      description: |
+        Add an event
+      operationId: POST_clients-clientId-enrollments-enrollmentId-event
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  event:
+                    eventId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    eventDate: 2019-01-01
+                    resultDate: 2019-01-01
+                    locationcrisisorphhousing: 1
+                    referralResult: 1
+                    event: 2
+                    referralCaseManageAfter: 1
+        required: true
+    parameters:
+      - name: enrollmentId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientId}/enrollments/{enrollmentId}/events/{eventId}':
+    get:
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    event:
+                      eventId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                      enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                      clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                      eventDate: 2019-01-01
+                      resultDate: 2019-01-01
+                      locationcrisisorphhousing: 1
+                      referralResult: 1
+                      event: 2
+                      referralCaseManageAfter: 1
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires an user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: Gets an event using a URI resource parameter/ID.
+      operationId: >-
+        GET_clients-clientId-enrollments-enrollmentId-events-eventId
+    put:
+      responses:
+        '200':
+          description: OK   Everything is working.
+        '304':
+          description: Not Modified   The client can use cached data.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires a user.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Updates a specific event specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        PUT_clients-clientId-enrollments-enrollmentId-events-eventId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  event:
+                    eventId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    eventDate: 2019-01-01
+                    resultDate: 2019-01-01
+                    locationcrisisorphhousing: 1
+                    referralResult: 1
+                    event: 2
+                    referralCaseManageAfter: 1
+        required: true
+    delete:
+      responses:
+        '204':
+          description: OK   The resource was successfully deleted.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Deletes a specific event specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        DELETE_clients-clientId-enrollments-enrollmentId-events-eventId
+    parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: event Identifier
+      - name: enrollmentId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+#=====Event API Docuementation End ============================
+#=====Current Living Situation API Docuementation Begins ============================
   '/clients/{clientId}/enrollments/{enrollmentId}/currentLivingSituations':
     get:
       responses:
