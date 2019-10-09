@@ -2845,7 +2845,6 @@ paths:
                           locationdetails: 1
                           subsequentresidence: 2
                           resourcestoobtain: 1
-                          subsequentresidence: 2
                           movedtwoormore: 1
                           currentLivingSituation: 2
         '400':
@@ -2882,7 +2881,6 @@ paths:
                     locationdetails: 1
                     subsequentresidence: 2
                     resourcestoobtain: 1
-                    subsequentresidence: 2
                     movedtwoormore: 1
                     currentLivingSituation: 2
         '400':
@@ -2916,7 +2914,6 @@ paths:
                     locationdetails: 1
                     subsequentresidence: 2
                     resourcestoobtain: 1
-                    subsequentresidence: 2
                     movedtwoormore: 1
                     currentLivingSituation: 2
         required: true
@@ -2953,7 +2950,6 @@ paths:
                       locationdetails: 1
                       subsequentresidence: 2
                       resourcestoobtain: 1
-                      subsequentresidence: 2
                       movedtwoormore: 1
                       currentLivingSituation: 2
         '400':
@@ -3008,7 +3004,6 @@ paths:
                     locationdetails: 1
                     subsequentresidence: 2
                     resourcestoobtain: 1
-                    subsequentresidence: 2
                     movedtwoormore: 1
                     currentLivingSituation: 2
         required: true
