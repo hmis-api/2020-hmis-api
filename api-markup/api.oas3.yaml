@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: 2020 HMIS
-  version: "1.0.5"
+  version: "1.0.6"
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
@@ -10847,7 +10847,7 @@ paths:
                         "gender": "1",
                         "otherGender": "Test",
                         "veteranStatus": "8",
-                        "link":"/hmis-clientapi/rest/v2014/clients/cf98b9b2-9a77-4133-99a3-b60f05a12ad1"
+                        "link":"/hmis-clientapi/rest/v2020/clients/cf98b9b2-9a77-4133-99a3-b60f05a12ad1"
                       }
                     ]
                   }
@@ -11251,6 +11251,248 @@ paths:
           schema:
             type: string
       description: The picklist values for spacific HUD question can be fetched usign action link("pickList") in response.
+  /hmishouseholds:
+    post:
+      description: Create a house hold
+      operationId: POST_hmis_household
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+             example:
+                hmisHousehold:
+                  headOfHouseHold:
+                    clientId: eac0fc00-f727-11e6-bdda-06c37be0e663
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                example:
+                    hmisHousehold:
+                      houseHoldId: 54fbbff7-24a3-489e-bc70-eda3ae6f273f
+                      houseHoldMembers: []
+    get:
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                example:
+                    hmisHouseholds:
+                      pagination:
+                        from: 0
+                        returned: 2
+                        total: 2
+                        maximum: 30
+                        sort: {}
+                      hmisHouseholds:
+                      - links:
+                        - rel: enrollments
+                          href: "/hmis-clientapi/rest/v2020/clients/e708f7f8-c6b4-41ba-b6f0-2bf352c08bbb/enrollments"
+                        houseHoldId: 36506eb5-6e04-4f2e-9630-01f05d9e841c
+                        headOfHouseHold:
+                          links:
+                          - rel: history
+                            href: "/client/e708f7f8-c6b4-41ba-b6f0-2bf352c08bbb/history"
+                          clientId: e708f7f8-c6b4-41ba-b6f0-2bf352c08bbb
+                          dedupClientId: eac0fc00-f727-11e6-bdda-06c37be0e663
+                          firstName: Jeanette_1577809805634
+                          middleName: ''
+                          lastName: Gonzales
+                          nameSuffix: ''
+                          nameDataQuality: 99
+                          ssn: 556-55-2266
+                          ssnDataQuality: 1
+                          dob: 259977600000
+                          dobDataQuality: 1
+                          race: 5
+                          ethnicity: 0
+                          gender: 0
+                        houseHoldMembers: []
+                      - links:
+                        - rel: enrollments
+                          href: "/hmis-clientapi/rest/v2020/clients/ed0c2e27-d019-46f3-80ee-4e5c8bd0af84/enrollments"
+                        houseHoldId: ed0c2e27-d019-46f3-80ee-4e5c8bd0af84
+                        headOfHouseHold:
+                          links:
+                          - rel: history
+                            href: "/client/ed0c2e27-d019-46f3-80ee-4e5c8bd0af84/history"
+                          clientId: ed0c2e27-d019-46f3-80ee-4e5c8bd0af84
+                          dedupClientId: eac0fc00-f727-11e6-bdda-06c37be0e663
+                          firstName: Jeanette_1577809805634
+                          middleName: ''
+                          lastName: Gonzales
+                          nameSuffix: ''
+                          nameDataQuality: 99
+                          ssn: 556-55-2266
+                          ssnDataQuality: 1
+                          dob: 259977600000
+                          dobDataQuality: 1
+                          race: 5
+                          ethnicity: 0
+                          gender: 0
+                        houseHoldMembers:
+                        - links:
+                          - rel: enrollments
+                            href: "/hmis-clientapi/rest/v2020/clients/9c7853d0-4749-490c-8b72-aa880355ec3f/enrollments"
+                          houseHoldMemberId: d6bcdf5b-2f99-4ccc-8f92-8c33c9a2674f
+                          member:
+                            links:
+                            - rel: history
+                              href: "/client/9c7853d0-4749-490c-8b72-aa880355ec3f/history"
+                            clientId: 9c7853d0-4749-490c-8b72-aa880355ec3f
+                            dedupClientId: eac0fc00-f727-11e6-bdda-06c37be0e663
+                            firstName: Jeanette_1577809805634
+                            middleName: ''
+                            lastName: Gonzales
+                            nameSuffix: ''
+                            nameDataQuality: 99
+                            ssn: 556-55-2266
+                            ssnDataQuality: 1
+                            dob: 259977600000
+                            dobDataQuality: 1
+                            race: 5
+                            ethnicity: 0
+                            gender: 0
+                          houseHoldId: faaf6863-c426-42f6-ae26-f7105b285f0c
+                          relationWithHouseHold: father
+
+      description: Get all households
+      operationId: GET_house_holds
+  '/hmishouseholds/{householdId}':
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                    hmisHousehold:
+                      links:
+                      - rel: enrollments
+                        href: "/hmis-clientapi/rest/v2020/clients/fd3bd080-8243-438d-bb3c-430097a6b7a3/enrollments"
+                      houseHoldId: 54fbbff7-24a3-489e-bc70-eda3ae6f273f
+                      headOfHouseHold:
+                        links:
+                        - rel: history
+                          href: "/client/fd3bd080-8243-438d-bb3c-430097a6b7a3/history"
+                        clientId: fd3bd080-8243-438d-bb3c-430097a6b7a3
+                        dedupClientId: eac0fc00-f727-11e6-bdda-06c37be0e663
+                        firstName: Jeanette_1577805760728
+                        middleName: ''
+                        lastName: Gonzales
+                        nameSuffix: ''
+                        nameDataQuality: 99
+                        ssn: 556-55-2266
+                        ssnDataQuality: 1
+                        dob: 259977600000
+                        dobDataQuality: 1
+                        race: 5
+                        ethnicity: 0
+                        gender: 0
+                      houseHoldMembers:
+                      - links:
+                        - rel: enrollments
+                          href: "/hmis-clientapi/rest/v2020/clients/6e6ab7f1-e8fe-4784-93c4-248d97a17ef0/enrollments"
+                        houseHoldMemberId: b3053a0c-1562-470c-a9c9-c28c9e9ee701
+                        member:
+                          links:
+                          - rel: history
+                            href: "/client/6e6ab7f1-e8fe-4784-93c4-248d97a17ef0/history"
+                          clientId: 6e6ab7f1-e8fe-4784-93c4-248d97a17ef0
+                          dedupClientId: eac0fc00-f727-11e6-bdda-06c37be0e663
+                          firstName: Jeanette_1577805760728
+                          middleName: ''
+                          lastName: Gonzales
+                          nameSuffix: ''
+                          nameDataQuality: 99
+                          ssn: 556-55-2266
+                          ssnDataQuality: 1
+                          dob: 259977600000
+                          dobDataQuality: 1
+                          race: 5
+                          ethnicity: 0
+                          gender: 0
+                        relationWithHouseHold: mather
+                        houseHoldId: 54fbbff7-24a3-489e-bc70-eda3ae6f273f
+                      - links:
+                        - rel: enrollments
+                          href: "/hmis-clientapi/rest/v2020/clients/174660d8-c1de-49cc-9bd6-788f099d38fc/enrollments"
+                        houseHoldMemberId: 068824d0-735d-41e0-abb1-eb34826a4024
+                        member:
+                          links:
+                          - rel: history
+                            href: "/client/174660d8-c1de-49cc-9bd6-788f099d38fc/history"
+                          clientId: 174660d8-c1de-49cc-9bd6-788f099d38fc
+                          dedupClientId: eac0fc00-f727-11e6-bdda-06c37be0e663
+                          firstName: Jeanette_1577805760728
+                          middleName: ''
+                          lastName: Gonzales
+                          nameSuffix: ''
+                          nameDataQuality: 99
+                          ssn: 556-55-2266
+                          ssnDataQuality: 1
+                          dob: 259977600000
+                          dobDataQuality: 1
+                          race: 5
+                          ethnicity: 0
+                          gender: 0
+                        relationWithHouseHold: mather
+                        houseHoldId: 54fbbff7-24a3-489e-bc70-eda3ae6f273f
+      description: Get selected household
+      operationId: GET_household_by_id
+    parameters:
+      - name: householdId
+        in: path
+        required: true
+        schema:
+          type: string
+  '/hmishouseholds/{householdId}/members':
+    put:
+      responses:
+        '200':
+          description: ''
+      description: Add member to selected household
+      operationId: PUT_member_household
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                    houseHoldMember:
+                      member:
+                        clientId: 34a6fcd7-9626-46cd-a79a-fe740ce57826
+                      relationWithHouseHold: father
+        required: true
+    parameters:
+      - name: householdId
+        in: path
+        required: true
+        schema:
+          type: string
+  '/hmishouseholds/{householdId}/members/{memberId}':
+    delete:
+      responses:
+        '200':
+          description: ''
+      description: Remove member from selected house hold based on member clientid
+      operationId: DELETE_member_house_hold
+    parameters:
+      - name: householdId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: memberId
+        in: path
+        required: true
+        schema:
+          type: string          
 components:
   examples:
     application/json:
