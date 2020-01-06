@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: 2020 HMIS
-  version: "1.0.6"
+  version: "1.0.7"
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
@@ -11363,7 +11363,7 @@ paths:
 
       description: Get all households
       operationId: GET_house_holds
-  '/hmishouseholds/{householdId}':
+  '/hmishouseholds/{householdid}':
     get:
       responses:
         '200':
@@ -11447,12 +11447,12 @@ paths:
       description: Get selected household
       operationId: GET_household_by_id
     parameters:
-      - name: householdId
+      - name: householdid
         in: path
         required: true
         schema:
           type: string
-  '/hmishouseholds/{householdId}/members':
+  '/hmishouseholds/{householdid}/members':
     put:
       responses:
         '200':
@@ -11470,12 +11470,12 @@ paths:
                       relationWithHouseHold: father
         required: true
     parameters:
-      - name: householdId
+      - name: householdid
         in: path
         required: true
         schema:
           type: string
-  '/hmishouseholds/{householdId}/members/{memberId}':
+  '/hmishouseholds/{householdid}/members/{memberid}':
     delete:
       responses:
         '200':
@@ -11483,12 +11483,12 @@ paths:
       description: Remove member from selected house hold based on member clientid
       operationId: DELETE_member_house_hold
     parameters:
-      - name: householdId
+      - name: householdid
         in: path
         required: true
         schema:
           type: string
-      - name: memberId
+      - name: memberid
         in: path
         required: true
         schema:
