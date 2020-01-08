@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: 2020 HMIS
-  version: "1.0.7"
+  version: "1.0.8"
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
@@ -141,7 +141,7 @@ paths:
                     phoneNumber: 1-541-754-3010
                     emailAddress: Jeanette@gmail.com
         required: true
-  '/clients/{clientId}':
+  '/clients/{clientid}':
     get:
       responses:
         '200':
@@ -248,7 +248,7 @@ paths:
       description: Deletes a specific client specified by the URI resource parameter/ID.
       operationId: DELETE_clients-clientId
     parameters:
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
@@ -256,7 +256,7 @@ paths:
           format: "uuid"
           default: "00ba9b0a-bf0a-411f-9ad3-56194beb9e8a"
         description: Client Identifier
-  '/clients/{clientId}/history':
+  '/clients/{clientid}/history':
    get:
     responses:
       '200':
@@ -336,7 +336,7 @@ paths:
         type: string
         default: "30"
       description: Max items in response
-    - name: clientId
+    - name: clientid
       in: path
       required: true
       schema:
@@ -344,7 +344,7 @@ paths:
         format: "uuid"
         default: "00ba9b0a-bf0a-411f-9ad3-56194beb9e8a"
       description: Client Identifier
-  '/clients/{clientId}/enrollments':
+  '/clients/{clientid}/enrollments':
     get:
       responses:
         '200':
@@ -444,7 +444,7 @@ paths:
                     dateToStreetEssh: 1
         required: true
     parameters:
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
@@ -452,7 +452,7 @@ paths:
           format: "uuid"
           default: "00ba9b0a-bf0a-411f-9ad3-56194beb9e8a"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}':
     get:
       parameters:
       - name: includeChildLinks
@@ -781,7 +781,7 @@ paths:
         parameter/ID.
       operationId: DELETE_clients-clientId-enrollments-enrollmentId
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
@@ -789,7 +789,7 @@ paths:
           format: "uuid"
           default: "03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
@@ -797,7 +797,7 @@ paths:
           format: "uuid"
           default: "00ba9b0a-bf0a-411f-9ad3-56194beb9e8a"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/history':
    get:
     responses:
       '200':
@@ -846,7 +846,7 @@ paths:
       additional query parameter narrows the search down further.
     operationId: GET_clients-clientId-enrollments-enrollmentId-history
    parameters:
-    - name: enrollmentId
+    - name: enrollmentid
       in: path
       required: true
       schema:
@@ -854,7 +854,7 @@ paths:
         format: "uuid"
         default: "03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113"
       description: Enrollment Identifier
-    - name: clientId
+    - name: clientid
       in: path
       required: true
       schema:
@@ -862,7 +862,7 @@ paths:
         format: "uuid"
         default: "00ba9b0a-bf0a-411f-9ad3-56194beb9e8a"
       description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/enrollmentcocs':
+  '/clients/{clientid}/enrollments/{enrollmentid}/enrollmentcocs':
     get:
       responses:
         '200':
@@ -939,21 +939,21 @@ paths:
                     cocCode: Test
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/enrollmentcocs/{enrollmentcocid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/enrollmentcocs/{enrollmentcocid}':
     get:
       responses:
         '200':
@@ -1044,21 +1044,21 @@ paths:
           type: string
           format: "uuid"
         description: Enrollmentcoc Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/enrollmentcocs/{enrollmentcocid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/enrollmentcocs/{enrollmentcocid}/history':
     get:
       responses:
         '200':
@@ -1102,21 +1102,21 @@ paths:
           type: string
           format: "uuid"
         description: Enrollmentcoc Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/educations':
+  '/clients/{clientid}/enrollments/{enrollmentid}/educations':
     get:
       responses:
         '200':
@@ -1198,21 +1198,21 @@ paths:
               $ref: '#/components/schemas/education'
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/educations/{educationid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/educations/{educationid}':
     get:
       responses:
         '200':
@@ -1299,21 +1299,21 @@ paths:
           type: string
           format: "uuid"
         description: Education Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/educations/{educationid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/educations/{educationid}/history':
     get:
       responses:
         '200':
@@ -1358,21 +1358,21 @@ paths:
           type: string
           format: "uuid"
         description: Education Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/contacts':
+  '/clients/{clientid}/enrollments/{enrollmentid}/contacts':
     get:
       responses:
         '200':
@@ -1444,21 +1444,21 @@ paths:
                     contactLocation: 3
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/contacts/{contactid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/contacts/{contactid}':
     get:
       responses:
         '200':
@@ -1538,21 +1538,21 @@ paths:
           type: string
           format: "uuid"
         description: Contact Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/contacts/{contactid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/contacts/{contactid}/history':
     get:
       responses:
         '200':
@@ -1594,21 +1594,21 @@ paths:
           type: string
           format: "uuid"
         description: Contact Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/dateofengagements':
+  '/clients/{clientid}/enrollments/{enrollmentid}/dateofengagements':
     get:
       responses:
         '200':
@@ -1681,21 +1681,21 @@ paths:
                     dateOfEngagement: '04-07-2020 17:50'
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/dateofengagements/{dateOfEngagementid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/dateofengagements/{dateofengagementid}':
     get:
       responses:
         '200':
@@ -1782,21 +1782,21 @@ paths:
           type: string
           format: "uuid"
         description: dateOfEngagement Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/dateofengagements/{dateOfEngagementid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/dateofengagements/{dateofengagementid}/history':
     get:
       responses:
         '200':
@@ -1839,21 +1839,21 @@ paths:
           type: string
           format: "uuid"
         description: dateOfEngagement Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/disabilities':
+  '/clients/{clientid}/enrollments/{enrollmentid}/disabilities':
     get:
       responses:
         '200':
@@ -1967,21 +1967,21 @@ paths:
                     informationDate: 03-17-2016
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/disabilities/{disabilityid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/disabilities/{disabilityid}':
     get:
       responses:
         '200':
@@ -2094,21 +2094,21 @@ paths:
           type: string
           format: "uuid"
         description: Disability Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/disabilities/{disabilityid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/disabilities/{disabilityid}/history':
     get:
       responses:
         '200':
@@ -2164,21 +2164,21 @@ paths:
           type: string
           format: "uuid"
         description: Disability Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/domesticviolences':
+  '/clients/{clientid}/enrollments/{enrollmentid}/domesticviolences':
     get:
       responses:
         '200':
@@ -2263,21 +2263,21 @@ paths:
                     informationDate: 03-17-2016
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/domesticviolences/{domesticViolenceId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/domesticviolences/{domesticviolenceid}':
     get:
       responses:
         '200':
@@ -2365,28 +2365,28 @@ paths:
       operationId: >-
         DELETE_clients-clientId-enrollments-enrollmentId-domesticViolences-domesticViolenceId
     parameters:
-      - name: domesticViolenceId
+      - name: domesticviolenceid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: domesticViolence Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/domesticviolences/{domesticViolenceId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/domesticviolences/{domesticviolenceid}/history':
     get:
       responses:
         '200':
@@ -2426,21 +2426,21 @@ paths:
         further.
       operationId: GET_clients-clientId-enrollments-enrollmentId-domesticViolences-domesticViolenceId-history
     parameters:
-      - name: domesticViolenceId
+      - name: domesticviolenceid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: domesticViolence Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
@@ -2448,7 +2448,7 @@ paths:
           format: "uuid"
         description: Client Identifier
 #=====Assessment API Docuementation Begins ============================
-  '/clients/{clientId}/enrollments/{enrollmentId}/assessments':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessments':
     get:
       responses:
         '200':
@@ -2540,21 +2540,21 @@ paths:
                     assessmentDate: 03-17-2016
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/assessments/{assessmentId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessments/{assessmentid}':
     get:
       responses:
         '200':
@@ -2647,28 +2647,28 @@ paths:
       operationId: >-
         DELETE_clients-clientId-enrollments-enrollmentId-assessments-assessmentId
     parameters:
-      - name: assessmentId
+      - name: assessmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: assessment Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/assessments/{assessmentId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessments/{assessmentid}/history':
     get:
       responses:
         '200':
@@ -2710,21 +2710,21 @@ paths:
         further.
       operationId: GET_clients-clientId-enrollments-enrollmentId-assessments-assessmentId-history
     parameters:
-      - name: assessmentId
+      - name: assessmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: assessment Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
@@ -2733,7 +2733,7 @@ paths:
         description: Client Identifier
 #=====Assessment API Docuementation End ============================
 #=====Assessment Questions API Docuementation Begins ============================
-  '/clients/{clientId}/enrollments/{enrollmentId}/assessmentQuestions':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions':
     get:
       responses:
         '200':
@@ -2825,21 +2825,21 @@ paths:
                     assessmentQuestion: Question
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/assessmentQuestions/{assessmentQuestionId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions/{assessmentquestionid}':
     get:
       responses:
         '200':
@@ -2932,28 +2932,28 @@ paths:
       operationId: >-
         DELETE_clients-clientId-enrollments-enrollmentId-assessmentQuestions-assessmentQuestionId
     parameters:
-      - name: assessmentQuestionId
+      - name: assessmentquestionìd
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: assessmentQuestion Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/assessmentQuestions/{assessmentQuestionId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions/{assessmentquestionid}/history':
     get:
       responses:
         '200':
@@ -2995,21 +2995,21 @@ paths:
         further.
       operationId: GET_clients-clientId-enrollments-enrollmentId-assessmentQuestions-assessmentQuestionId-history
     parameters:
-      - name: assessmentQuestionId
+      - name: assessmentquestionìd
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: assessmentQuestion Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
@@ -3018,7 +3018,7 @@ paths:
         description: Client Identifier
 #=====Assessment Question API Docuementation End ============================
 #=====Assessment Result API Docuementation Begins ============================
-  '/clients/{clientId}/enrollments/{enrollmentId}/assessmentResults':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults':
     get:
       responses:
         '200':
@@ -3104,21 +3104,21 @@ paths:
                     assessmentResultType: 1
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/assessmentResults/{assessmentResultId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults/{assessmentresultid}':
     get:
       responses:
         '200':
@@ -3211,28 +3211,28 @@ paths:
       operationId: >-
         DELETE_clients-clientId-enrollments-enrollmentId-assessmentResults-assessmentResultId
     parameters:
-      - name: assessmentResultId
+      - name: assessmentresultid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: assessmentResult Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/assessmentResults/{assessmentResultId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults/{assessmentresultid}/history':
     get:
       responses:
         '200':
@@ -3272,21 +3272,21 @@ paths:
         further.
       operationId: GET_clients-clientId-enrollments-enrollmentId-assessmentResults-assessmentResultId-history
     parameters:
-      - name: assessmentResultId
+      - name: assessmentresultid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: assessmentResult Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
@@ -3295,7 +3295,7 @@ paths:
         description: Client Identifier
 #=====Assessment Result  API Docuementation End ============================
 #=====Event API Docuementation Begins ============================
-  '/clients/{clientId}/enrollments/{enrollmentId}/events':
+  '/clients/{clientid}/enrollments/{enrollmentid}/events':
     get:
       responses:
         '200':
@@ -3390,21 +3390,21 @@ paths:
                     referralCaseManageAfter: 1
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/events/{eventId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/events/{eventid}':
     get:
       responses:
         '200':
@@ -3499,28 +3499,28 @@ paths:
       operationId: >-
         DELETE_clients-clientId-enrollments-enrollmentId-events-eventId
     parameters:
-      - name: eventId
+      - name: eventid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: event Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/events/{eventId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/events/{eventid}/history':
     get:
       responses:
         '200':
@@ -3563,21 +3563,21 @@ paths:
         further.
       operationId: GET_clients-clientId-enrollments-enrollmentId-events-eventId-history
     parameters:
-      - name: eventId
+      - name: eventid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: event Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
@@ -3586,7 +3586,7 @@ paths:
         description: Client Identifier
 #=====Event API Docuementation End ============================
 #=====Current Living Situation API Docuementation Begins ============================
-  '/clients/{clientId}/enrollments/{enrollmentId}/currentLivingSituations':
+  '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations':
     get:
       responses:
         '200':
@@ -3683,21 +3683,21 @@ paths:
                     currentLivingSituation: 2
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/currentLivingSituations/{currentLivingSituationId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations/{currentlivingsituationid}':
     get:
       responses:
         '200':
@@ -3794,28 +3794,28 @@ paths:
       operationId: >-
         DELETE_clients-clientId-enrollments-enrollmentId-currentLivingSituations-currentLivingSituationId
     parameters:
-      - name: currentLivingSituationId
+      - name: currentlivingsituationid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: currentLivingSituation Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/currentLivingSituations/{currentLivingSituationId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations/{currentlivingsituationid}/history':
     get:
       responses:
         '200':
@@ -3858,21 +3858,21 @@ paths:
         further.
       operationId: GET_clients-clientId-enrollments-enrollmentId-currentLivingSituations-currentLivingSituationId-history
     parameters:
-      - name: currentLivingSituationId
+      - name: currentlivingsituationid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: currentLivingSituation Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
@@ -3880,7 +3880,7 @@ paths:
           format: "uuid"
         description: Client Identifier
 #=====Current Living Situation  API Docuementation End ============================
-  '/clients/{clientId}/enrollments/{enrollmentId}/employments':
+  '/clients/{clientid}/enrollments/{enrollmentid}/employments':
     get:
       responses:
         '200':
@@ -3963,21 +3963,21 @@ paths:
                     informationDate: 03-17-2016
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/employments/{employmentid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/employments/{employmentid}':
     get:
       responses:
         '200':
@@ -4070,21 +4070,21 @@ paths:
           type: string
           format: "uuid"
         description: Employment Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/employments/{employmentid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/employments/{employmentid}/history':
     get:
       responses:
         '200':
@@ -4130,21 +4130,21 @@ paths:
           type: string
           format: "uuid"
         description: Employment Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits':
     get:
       responses:
         '200':
@@ -4225,21 +4225,21 @@ paths:
                     destination: 6
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits/{exitId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}':
     get:
       responses:
         '200':
@@ -4318,28 +4318,28 @@ paths:
       description: Deletes a specific exit specified by the URI resource parameter/ID.
       operationId: DELETE_clients-clientId-enrollments-enrollmentId-exits-exitId
     parameters:
-      - name: exitId
+      - name: exitid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Exit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits/{exitId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/history':
     get:
       responses:
         '200':
@@ -4377,28 +4377,28 @@ paths:
         additional query parameter narrows the search down further.
       operationId: GET_clients-clientId-enrollments-enrollmentId-exits-exitId-history
     parameters:
-      - name: exitId
+      - name: exitid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Exit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits/{exitId}/exitHousingAssessments':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments':
     get:
       responses:
         '200':
@@ -4476,28 +4476,28 @@ paths:
                     subsidyInformation: 4
         required: true
     parameters:
-      - name: exitId
+      - name: exitid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Exit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits/{exitId}/exitHousingAssessments/{exitHousingAssessmentId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments/{exithousingassessmentid}':
     get:
       responses:
         '200':
@@ -4579,35 +4579,35 @@ paths:
       operationId: >-
         DELETE_clients-clientId-enrollments-enrollmentId-exits-exitId-exitHousingAssessments-exitHousingAssessmentId
     parameters:
-      - name: exitHousingAssessmentId
+      - name: exithousingassessmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: exitHousingAssessment Identifier
-      - name: exitId
+      - name: exitid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Exit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits/{exitId}/exitHousingAssessments/{exitHousingAssessmentId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments/{exithousingassessmentid}/history':
     get:
       responses:
         '200':
@@ -4645,35 +4645,35 @@ paths:
       operationId: >-
         GET_clients-clientId-enrollments-enrollmentId-exits-exitId-exitHousingAssessments-exitHousingAssessmentId-history
     parameters:
-      - name: exitHousingAssessmentId
+      - name: exithousingassessmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: exitHousingAssessment Identifier
-      - name: exitId
+      - name: exitid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Exit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits/{exitId}/exitPaths':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPaths':
     get:
       responses:
         '200':
@@ -4744,28 +4744,28 @@ paths:
                     connectionWithSoar: 9
         required: true
     parameters:
-      - name: exitId
+      - name: exitid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Exit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits/{exitId}/exitPaths/{exitPathid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPaths/{exitPathid}':
     get:
       responses:
         '200':
@@ -4847,28 +4847,28 @@ paths:
           type: string
           format: "uuid"
         description: exitPath Identifier
-      - name: exitId
+      - name: exitid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Exit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits/{exitId}/exitPaths/{exitPathid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPaths/{exitPathid}/history':
     get:
       responses:
         '200':
@@ -4910,28 +4910,28 @@ paths:
           type: string
           format: "uuid"
         description: exitPath Identifier
-      - name: exitId
+      - name: exitid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Exit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits/{exitId}/exitrhys':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitrhys':
     get:
       responses:
         '200':
@@ -5096,28 +5096,28 @@ paths:
                   laborExploitPastThreeMonths: 0
         required: true
     parameters:
-      - name: exitId
+      - name: exitid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Exit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits/{exitId}/exitrhys/{exitrhyid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitrhys/{exitrhyid}':
     get:
       responses:
         '200':
@@ -5252,28 +5252,28 @@ paths:
           type: string
           format: "uuid"
         description: Exitrhy Identifier
-      - name: exitId
+      - name: exitid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Exit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/exits/{exitId}/exitrhys/{exitrhyid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitrhys/{exitrhyid}/history':
     get:
       responses:
         '200':
@@ -5326,28 +5326,28 @@ paths:
           type: string
           format: "uuid"
         description: Exitrhy Identifier
-      - name: exitId
+      - name: exitid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Exit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/healthinsurances':
+  '/clients/{clientid}/enrollments/{enrollmentid}/healthinsurances':
     get:
       responses:
         '200':
@@ -5463,21 +5463,21 @@ paths:
                     informationDate: 03-17-2016
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/healthinsurances/{healthinsuranceid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/healthinsurances/{healthinsuranceid}':
     get:
       responses:
         '200':
@@ -5602,21 +5602,21 @@ paths:
           type: string
           format: "uuid"
         description: Healthinsurance Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/healthinsurances/{healthinsuranceid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/healthinsurances/{healthinsuranceid}/history':
     get:
       responses:
         '200':
@@ -5678,21 +5678,21 @@ paths:
           type: string
           format: "uuid"
         description: Healthinsurance Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/healthstatuses':
+  '/clients/{clientid}/enrollments/{enrollmentid}/healthstatuses':
     get:
       responses:
         '200':
@@ -5776,21 +5776,21 @@ paths:
                     informationDate: 03-17-2016
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/healthstatuses/{healthStatusId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/healthstatuses/{healthstatusid}':
     get:
       responses:
         '200':
@@ -5878,28 +5878,28 @@ paths:
       operationId: >-
         DELETE_clients-clientId-enrollments-enrollmentId-healthStatuses-healthStatusId
     parameters:
-      - name: healthStatusId
+      - name: healthstatusid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: healthStatus Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/healthstatuses/{healthStatusId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/healthstatuses/{healthstatusid}/history':
     get:
       responses:
         '200':
@@ -5938,28 +5938,28 @@ paths:
         additional query parameter narrows the search down further.
       operationId: GET_clients-clientId-enrollments-enrollmentId-healthStatuses-healthStatusId-history
     parameters:
-      - name: healthStatusId
+      - name: healthstatusid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: healthStatus Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/incomeandsources':
+  '/clients/{clientid}/enrollments/{enrollmentid}/incomeandsources':
     get:
       responses:
         '200':
@@ -6140,21 +6140,21 @@ paths:
                       informationDate: 03-17-2016
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/incomeandsources/{incomeAndSourceId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/incomeandsources/{incomeandsourceid}':
     get:
       responses:
         '200':
@@ -6307,28 +6307,28 @@ paths:
       operationId: >-
         DELETE_clients-clientId-enrollments-enrollmentId-incomeandsources-incomeAndSourceId
     parameters:
-      - name: incomeAndSourceId
+      - name: incomeandsourceid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Incomeandsource Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/incomeandsources/{incomeAndSourceId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/incomeandsources/{incomeandsourceid}/history':
     get:
       responses:
         '200':
@@ -6406,21 +6406,21 @@ paths:
           type: string
           format: "uuid"
         description: Incomeandsource Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/medicalassistances':
+  '/clients/{clientid}/enrollments/{enrollmentid}/medicalassistances':
     get:
       responses:
         '200':
@@ -6510,21 +6510,21 @@ paths:
               $ref: '#/components/schemas/medical_assistance'
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/medicalassistances/{medicalassistanceid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/medicalassistances/{medicalassistanceid}':
     get:
       responses:
         '200':
@@ -6623,21 +6623,21 @@ paths:
           type: string
           format: "uuid"
         description: Medicalassistance Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/medicalassistances/{medicalassistanceid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/medicalassistances/{medicalassistanceid}/history':
     get:
       responses:
         '200':
@@ -6686,21 +6686,21 @@ paths:
           type: string
           format: "uuid"
         description: Medicalassistance Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/noncashbenefits':
+  '/clients/{clientid}/enrollments/{enrollmentid}/noncashbenefits':
     get:
       responses:
         '200':
@@ -6808,21 +6808,21 @@ paths:
               $ref: '#/components/schemas/non_cash_benefits'
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/noncashbenefits/{noncashbenefitid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/noncashbenefits/{noncashbenefitid}':
     get:
       responses:
         '200':
@@ -6933,21 +6933,21 @@ paths:
           type: string
           format: "uuid"
         description: Noncashbenefit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/noncashbenefits/{noncashbenefitid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/noncashbenefits/{noncashbenefitid}/history':
     get:
       responses:
         '200':
@@ -7002,21 +7002,21 @@ paths:
           type: string
           format: "uuid"
         description: Noncashbenefit Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/residentialMoveinDates':
+  '/clients/{clientid}/enrollments/{enrollmentid}/residentialMoveinDates':
     get:
       responses:
         '200':
@@ -7093,21 +7093,21 @@ paths:
               $ref: '#/components/schemas/residential_move_in_date'
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/residentialMoveinDates/{residentialMoveinDateid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/residentialMoveinDates/{residentialmoveindateid}':
     get:
       responses:
         '200':
@@ -7190,28 +7190,28 @@ paths:
       operationId: >-
         DELETE_clients-clientId-enrollments-enrollmentId-residentialMoveinDates-residentialMoveinDateid
     parameters:
-      - name: residentialMoveinDateid
+      - name: residentialmoveindateid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: residentialMoveinDate Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/residentialMoveinDates/{residentialMoveinDateid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/residentialMoveinDates/{residentialmoveindateid}/history':
     get:
       responses:
         '200':
@@ -7249,28 +7249,28 @@ paths:
         narrows the search down further.
       operationId: GET_clients-clientId-enrollments-enrollmentId-residentialMoveinDates-residentialMoveinDateid-history
     parameters:
-      - name: residentialMoveinDateid
+      - name: residentialmoveindateid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: residentialMoveinDate Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/pathstatuses':
+  '/clients/{clientid}/enrollments/{enrollmentid}/pathstatuses':
     get:
       responses:
         '200':
@@ -7350,21 +7350,21 @@ paths:
               $ref: '#/components/schemas/path_status'
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/pathstatuses/{pathstatusid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/pathstatuses/{pathstatusid}':
     get:
       responses:
         '200':
@@ -7455,21 +7455,21 @@ paths:
           type: string
           format: "uuid"
         description: Pathstatus Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/pathstatuses/{pathstatusid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/pathstatuses/{pathstatusid}/history':
     get:
       responses:
         '200':
@@ -7514,21 +7514,21 @@ paths:
           type: string
           format: "uuid"
         description: Pathstatus Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/entryRhsps':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryRhsps':
     get:
       responses:
         '200':
@@ -7602,21 +7602,21 @@ paths:
               $ref: '#/components/schemas/entry_rhsp'
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/entryRhsps/{entryRhspId}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryRhsps/{entryrhspid}':
     get:
       responses:
         '200':
@@ -7691,28 +7691,28 @@ paths:
       description: Deletes a specific entryRhsp specified by the URI resource parameter/ID.
       operationId: DELETE_clients-clientId-enrollments-enrollmentId-entryRhsps-entryRhspId
     parameters:
-      - name: entryRhspId
+      - name: entryrhspid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: entryRhsp Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/entryRhsps/{entryRhspId}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryRhsps/{entryrhspid}/history':
     get:
       responses:
         '200':
@@ -7748,28 +7748,28 @@ paths:
         additional query parameter narrows the search down further.
       operationId: GET_clients-clientId-enrollments-enrollmentId-entryRhsps-entryRhspId-history
     parameters:
-      - name: entryRhspId
+      - name: entryrhspid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: entryRhsp Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/entryrhys':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryrhys':
     get:
       responses:
         '200':
@@ -7969,21 +7969,21 @@ paths:
               $ref: '#/components/schemas/entry_rhy'
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/entryrhys/{entryrhyid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryrhys/{entryrhyid}':
     get:
       responses:
         '200':
@@ -8149,21 +8149,21 @@ paths:
           type: string
           format: "uuid"
         description: Entryrhy Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/entryrhys/{entryrhyid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryrhys/{entryrhyid}/history':
     get:
       responses:
         '200':
@@ -8248,21 +8248,21 @@ paths:
           type: string
           format: "uuid"
         description: Entryrhy Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/entryssvfs':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryssvfs':
     get:
       responses:
         '200':
@@ -8357,21 +8357,21 @@ paths:
               $ref: '#/components/schemas/entry_ssvf'
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/entryssvfs/{entryssvfid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryssvfs/{entryssvfid}':
     get:
       responses:
         '200':
@@ -8467,21 +8467,21 @@ paths:
           type: string
           format: "uuid"
         description: Entryssvf Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/entryssvfs/{entryssvfid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryssvfs/{entryssvfid}/history':
     get:
       responses:
         '200':
@@ -8531,21 +8531,21 @@ paths:
           type: string
           format: "uuid"
         description: Entryssvf Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/serviceFaReferrals':
+  '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals':
     get:
       responses:
         '200':
@@ -8638,21 +8638,21 @@ paths:
               $ref: '#/components/schemas/service_fa_referral'
         required: true
     parameters:
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/serviceFaReferrals/{serviceFaReferralid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals/{servicefareferralid}':
     get:
       responses:
         '200':
@@ -8746,28 +8746,28 @@ paths:
       operationId: >-
         DELETE_clients-clientId-enrollments-enrollmentId-serviceFaReferrals-serviceFaReferralid
     parameters:
-      - name: serviceFaReferralid
+      - name: servicefareferralid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: serviceFaReferral Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/enrollments/{enrollmentId}/serviceFaReferrals/{serviceFaReferralid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals/{servicefareferralid}/history':
     get:
       responses:
         '200':
@@ -8810,28 +8810,28 @@ paths:
         further.
       operationId: GET_clients-clientId-enrollments-enrollmentId-serviceFaReferrals-serviceFaReferralid-history
     parameters:
-      - name: serviceFaReferralid
+      - name: servicefareferralid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: serviceFaReferral Identifier
-      - name: enrollmentId
+      - name: enrollmentid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Enrollment Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/veteraninfos':
+  '/clients/{clientid}/veteraninfos':
     get:
       responses:
         '200':
@@ -8938,14 +8938,14 @@ paths:
               $ref: '#/components/schemas/veteran_info'
         required: true
     parameters:
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/veteraninfos/{veteraninfoid}':
+  '/clients/{clientid}/veteraninfos/{veteraninfoid}':
     get:
       responses:
         '200':
@@ -9053,14 +9053,14 @@ paths:
           type: string
           format: "uuid"
         description: Veteraninfo Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientId}/veteraninfos/{veteraninfoid}/history':
+  '/clients/{clientid}/veteraninfos/{veteraninfoid}/history':
     get:
       responses:
         '200':
@@ -9114,7 +9114,7 @@ paths:
           type: string
           format: "uuid"
         description: Veteraninfo Identifier
-      - name: clientId
+      - name: clientid
         in: path
         required: true
         schema:
@@ -9217,7 +9217,7 @@ paths:
             schema:
               $ref: '#/components/schemas/project'
         required: true
-  '/projects/{projectId}':
+  '/projects/{projectid}':
     get:
       responses:
         '200':
@@ -9306,13 +9306,13 @@ paths:
       description: Deletes a specific project specified by the URI resource parameter/ID.
       operationId: DELETE_projects-projectId
     parameters:
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/history':
+  '/projects/{projectid}/history':
     get:
       responses:
         '200':
@@ -9357,13 +9357,13 @@ paths:
         additional query parameter narrows the search down further.
       operationId: GET_projects-projectId-history
     parameters:
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/projectCocs':
+  '/projects/{projectid}/projectCocs':
     get:
       responses:
         '200':
@@ -9440,13 +9440,13 @@ paths:
               $ref: '#/components/schemas/project_coc'
         required: true
     parameters:
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/projectCocs/{projectCocid}':
+  '/projects/{projectid}/projectCocs/{projectcocid}':
     get:
       responses:
         '200':
@@ -9527,19 +9527,19 @@ paths:
         parameter/ID.
       operationId: DELETE_projects-projectId-projectCocs-projectCocid
     parameters:
-      - name: projectCocid
+      - name: projectcocid
         in: path
         required: true
         schema:
           type: string
         description: projectCoc Identifier
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/projectCocs/{projectCocid}/history':
+  '/projects/{projectid}/projectCocs/{projectcocid}/history':
     get:
       responses:
         '200':
@@ -9576,19 +9576,19 @@ paths:
         additional query parameter narrows the search down further.
       operationId: GET_projects-projectId-projectCocs-projectCocid-history
     parameters:
-      - name: projectCocid
+      - name: projectcocid
         in: path
         required: true
         schema:
           type: string
         description: projectCoc Identifier
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/inventories':
+  '/projects/{projectid}/inventories':
     get:
       responses:
         '200':
@@ -9695,13 +9695,13 @@ paths:
               $ref: '#/components/schemas/inventory'
         required: true
     parameters:
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/inventories/{inventoryid}':
+  '/projects/{projectid}/inventories/{inventoryid}':
     get:
       responses:
         '200':
@@ -9805,13 +9805,13 @@ paths:
         schema:
           type: string
         description: Inventory Identifier
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/inventories/{inventoryid}/history':
+  '/projects/{projectid}/inventories/{inventoryid}/history':
     get:
       responses:
         '200':
@@ -9864,13 +9864,13 @@ paths:
         schema:
           type: string
         description: Inventory Identifier
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/sites':
+  '/projects/{projectid}/sites':
     get:
       responses:
         '200':
@@ -9962,13 +9962,13 @@ paths:
               $ref: '#/components/schemas/site'
         required: true
     parameters:
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/sites/{siteId}':
+  '/projects/{projectid}/sites/{siteId}':
     get:
       responses:
         '200':
@@ -10061,13 +10061,13 @@ paths:
         schema:
           type: string
         description: Site Identifier
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/sites/{siteId}/history':
+  '/projects/{projectid}/sites/{siteId}/history':
     get:
       responses:
         '200':
@@ -10115,13 +10115,13 @@ paths:
         schema:
           type: string
         description: Site Identifier
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/funders':
+  '/projects/{projectid}/funders':
     get:
       responses:
         '200':
@@ -10207,13 +10207,13 @@ paths:
               $ref: '#/components/schemas/funder'
         required: true
     parameters:
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/funders/{funderid}':
+  '/projects/{projectid}/funders/{funderid}':
     get:
       responses:
         '200':
@@ -10302,13 +10302,13 @@ paths:
         schema:
           type: string
         description: Funder Identifier
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/funders/{funderid}/history':
+  '/projects/{projectid}/funders/{funderid}/history':
     get:
       responses:
         '200':
@@ -10354,13 +10354,13 @@ paths:
         schema:
           type: string
         description: Funder Identifier
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/affiliations':
+  '/projects/{projectid}/affiliations':
     get:
       responses:
         '200':
@@ -10437,13 +10437,13 @@ paths:
               $ref: '#/components/schemas/affiliation'
         required: true
     parameters:
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/affiliations/{affiliationid}':
+  '/projects/{projectid}/affiliations/{affiliationid}':
     get:
       responses:
         '200':
@@ -10530,13 +10530,13 @@ paths:
         schema:
           type: string
         description: Affiliation Identifier
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectId}/affiliations/{affiliationid}/history':
+  '/projects/{projectid}/affiliations/{affiliationid}/history':
     get:
       responses:
         '200':
@@ -10579,7 +10579,7 @@ paths:
         schema:
           type: string
         description: Affiliation Identifier
-      - name: projectId
+      - name: projectid
         in: path
         required: true
         schema:
@@ -11094,7 +11094,7 @@ paths:
                       links:
                       - rel: pickList
                         href: "/hmis-clientapi/rest/v2020/hmistypes/bed_inventory/values"
-                      updateUriTemplate: "/v2020/projects/{projectId}/inventories/{inventoryid}"
+                      updateUriTemplate: "/v2020/projects/{projectid}/inventories/{inventoryid}"
                       options: {}
                     - questionId: 024c9acd-d3e1-4cc4-9800-a9db85edad38
                       questionDescription: Length Of Stay
@@ -11107,7 +11107,7 @@ paths:
                       - rel: pickList
                         href: "/hmis-clientapi/rest/v2020/hmistypes/lengthOfStay/values"
                       uriObjectField: enrollment.timesHomelessPastThreeYears
-                      updateUriTemplate: "/v2020/clients/{clientId}/enrollments/{enrollmentId}"
+                      updateUriTemplate: "/v2020/clients/{clientid}/enrollments/{enrollmentid}"
                       options: {}
 
       operationId: GET_questions
@@ -11141,7 +11141,7 @@ paths:
                     questionType: TEXT
                     hudQuestionId: '2'
                     uriObjectField: enrollment.timesHomelessPastThreeYears
-                    updateUriTemplate: "/v2020/clients/{clientId}/enrollments/{enrollmentId}"
+                    updateUriTemplate: "/v2020/clients/{clientid}/enrollments/{enrollmentid}"
                     options:
                       '1': Category 1 - Homeless
                       '2': Category 2 - At imminent risk of losing housing
@@ -11239,7 +11239,7 @@ paths:
                         title: Living Situation
                         options: {}
                       uriObjectField: enrollment.timesHomelessPastThreeYears
-                      updateUriTemplate: "/v2020/clients/{clientId}/enrollments/{enrollmentId}"
+                      updateUriTemplate: "/v2020/clients/{clientid}/enrollments/{enrollmentid}"
                       options: {}
 
 
