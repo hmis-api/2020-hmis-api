@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: 2020 HMIS
-  version: "1.0.8"
+  version: "1.0.9"
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
@@ -2733,7 +2733,7 @@ paths:
         description: Client Identifier
 #=====Assessment API Docuementation End ============================
 #=====Assessment Questions API Docuementation Begins ============================
-  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentquestions':
     get:
       responses:
         '200':
@@ -2839,7 +2839,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions/{assessmentquestionid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentquestions/{assessmentquestionid}':
     get:
       responses:
         '200':
@@ -2953,7 +2953,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions/{assessmentquestionid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentquestions/{assessmentquestionid}/history':
     get:
       responses:
         '200':
@@ -3017,8 +3017,300 @@ paths:
           format: "uuid"
         description: Client Identifier
 #=====Assessment Question API Docuementation End ============================
+#=====Assessment Questions API Docuementation Deprecated Begins ============================
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    assessmentQuestion:
+                      pagination:
+                        from: 0
+                        returned: 1
+                        total: 1
+                        maximum: 30
+                        sort: {}
+                      assessmentQuestions:
+                        - assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                          enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                          assessmentQuestionGroup: location
+                          assessmentQuestionOrder: 1
+                          assessmentAnswer:  Answer
+                          assessmentQuestion: Question
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for assessmentQuestion.  Returns a list of assessmentQuestion ids,
+        based on the query parameters sent.  The query parameters are
+        cumulative, so each additional query parameter narrows the search down
+        further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-assessmentQuestions
+
+    post:
+      deprecated: true    
+      responses:
+        '201':
+          description: OK - New resource has been created.
+          content:
+            application/json:
+              schema:
+                example:
+                  assessmentQuestion:
+                    assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                    assessmentQuestionGroup: location
+                    assessmentQuestionOrder: 1
+                    assessmentAnswer:  Answer
+                    assessmentQuestion: Question
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            access is not allowed.
+        '404':
+          description: Not Found   There is no resource behind the URI.
+        '422':
+          description: Unprocessable Entity - Request body is incorrect.
+        '500':
+          description: Internal Server Error.
+      description: |
+        Add an assessmentQuestion
+      operationId: POST_dep_clients-clientId-enrollments-enrollmentId-assessmentQuestion
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  assessmentQuestion:
+                    assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                    assessmentQuestionGroup: location
+                    assessmentQuestionOrder: 1
+                    assessmentAnswer:  Answer
+                    assessmentQuestion: Question
+        required: true
+    parameters:
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions/{assessmentquestionid}':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    assessmentQuestion:
+                      assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                      enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                      clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                      assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                      assessmentQuestionGroup: location
+                      assessmentQuestionOrder: 1
+                      assessmentAnswer:  Answer
+                      assessmentQuestion: Question
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires an user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: Gets an assessmentQuestion using a URI resource parameter/ID.
+      operationId: >-
+        GET_dep_clients-clientId-enrollments-enrollmentId-assessmentQuestions-assessmentQuestionId
+    put:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+        '304':
+          description: Not Modified   The client can use cached data.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires a user.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Updates a specific assessmentQuestion specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        PUT_dep_clients-clientId-enrollments-enrollmentId-assessmentQuestions-assessmentQuestionId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  assessmentQuestion:
+                    assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                    assessmentQuestionGroup: location
+                    assessmentQuestionOrder: 1
+                    assessmentAnswer:  Answer
+                    assessmentQuestion: Question
+        required: true
+    delete:
+      deprecated: true    
+      responses:
+        '204':
+          description: OK   The resource was successfully deleted.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Deletes a specific assessmentQuestion specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        DELETE_dep_clients-clientId-enrollments-enrollmentId-assessmentQuestions-assessmentQuestionId
+    parameters:
+      - name: assessmentquestionìd
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: assessmentQuestion Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions/{assessmentquestionid}/history':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    assessmentQuestion:
+                      pagination:
+                        from: 0
+                        returned: 1
+                        total: 1
+                        maximum: 30
+                        sort: {}
+                      assessmentQuestions:
+                        - assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                          enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                          assessmentQuestionGroup: location
+                          assessmentQuestionOrder: 1
+                          assessmentAnswer:  Answer
+                          assessmentQuestion: Question
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for assessmentQuestion history.  Returns a list of assessmentQuestion ids history,
+        based on the query parameters sent.  The query parameters are
+        cumulative, so each additional query parameter narrows the search down
+        further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-assessmentQuestions-assessmentQuestionId-history
+    parameters:
+      - name: assessmentquestionìd
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: assessmentQuestion Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+#=====Assessment Question API Docuementation End ============================
+
 #=====Assessment Result API Docuementation Begins ============================
-  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentresults':
     get:
       responses:
         '200':
@@ -3118,7 +3410,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults/{assessmentresultid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentresults/{assessmentresultid}':
     get:
       responses:
         '200':
@@ -3232,7 +3524,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults/{assessmentresultid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentresults/{assessmentresultid}/history':
     get:
       responses:
         '200':
@@ -3294,6 +3586,292 @@ paths:
           format: "uuid"
         description: Client Identifier
 #=====Assessment Result  API Docuementation End ============================
+
+
+#=====Assessment Result API Docuementation Begins ============================
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    assessmentResult:
+                      pagination:
+                        from: 0
+                        returned: 1
+                        total: 1
+                        maximum: 30
+                        sort: {}
+                      assessmentResults:
+                        - assessmentResultId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                          enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                          assessmentResult: location
+                          assessmentResultType: 1
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for assessmentResult.  Returns a list of assessmentResult ids,
+        based on the query parameters sent.  The query parameters are
+        cumulative, so each additional query parameter narrows the search down
+        further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-assessmentResults
+
+    post:
+      deprecated: true    
+      responses:
+        '201':
+          description: OK - New resource has been created.
+          content:
+            application/json:
+              schema:
+                example:
+                  assessmentResult:
+                    assessmentResultId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                    assessmentResult: location
+                    assessmentResultType: 1
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            access is not allowed.
+        '404':
+          description: Not Found   There is no resource behind the URI.
+        '422':
+          description: Unprocessable Entity - Request body is incorrect.
+        '500':
+          description: Internal Server Error.
+      description: |
+        Add an assessmentResult
+      operationId: POST_dep_clients-clientId-enrollments-enrollmentId-assessmentResult
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  assessmentResult:
+                    assessmentResultId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                    assessmentResult: location
+                    assessmentResultType: 1
+        required: true
+    parameters:
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults/{assessmentresultid}':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    assessmentResult:
+                      assessmentResultId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                      enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                      clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                      assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                      assessmentResultGroup: location
+                      assessmentResultOrder: 1
+                      assessmentAnswer:  Answer
+                      assessmentResult: Question
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires an user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: Gets an assessmentResult using a URI resource parameter/ID.
+      operationId: >-
+        GET_dep_clients-clientId-enrollments-enrollmentId-assessmentResults-assessmentResultId
+    put:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+        '304':
+          description: Not Modified   The client can use cached data.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires a user.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Updates a specific assessmentResult specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        PUT_dep_clients-clientId-enrollments-enrollmentId-assessmentResults-assessmentResultId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  assessmentResult:
+                    assessmentResultId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                    assessmentResultGroup: location
+                    assessmentResultOrder: 1
+                    assessmentAnswer:  Answer
+                    assessmentResult: Question
+        required: true
+    delete:
+      deprecated: true    
+      responses:
+        '204':
+          description: OK   The resource was successfully deleted.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Deletes a specific assessmentResult specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        DELETE_dep_clients-clientId-enrollments-enrollmentId-assessmentResults-assessmentResultId
+    parameters:
+      - name: assessmentresultid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: assessmentResult Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults/{assessmentresultid}/history':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    assessmentResult:
+                      pagination:
+                        from: 0
+                        returned: 1
+                        total: 1
+                        maximum: 30
+                        sort: {}
+                      assessmentResults:
+                        - assessmentResultId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                          enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
+                          assessmentResult: location
+                          assessmentResultType: 1
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for assessmentResult history.  Returns a list of assessmentResult ids history,
+        based on the query parameters sent.  The query parameters are
+        cumulative, so each additional query parameter narrows the search down
+        further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-assessmentResults-assessmentResultId-history
+    parameters:
+      - name: assessmentresultid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: assessmentResult Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+#=====Assessment Result  API Docuementation End ============================
+
 #=====Event API Docuementation Begins ============================
   '/clients/{clientid}/enrollments/{enrollmentid}/events':
     get:
@@ -3586,7 +4164,7 @@ paths:
         description: Client Identifier
 #=====Event API Docuementation End ============================
 #=====Current Living Situation API Docuementation Begins ============================
-  '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations':
+  '/clients/{clientid}/enrollments/{enrollmentid}/currentlivingsituations':
     get:
       responses:
         '200':
@@ -3697,7 +4275,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations/{currentlivingsituationid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/currentlivingsituations/{currentlivingsituationid}':
     get:
       responses:
         '200':
@@ -3815,7 +4393,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations/{currentlivingsituationid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/currentlivingsituations/{currentlivingsituationid}/history':
     get:
       responses:
         '200':
@@ -3880,6 +4458,309 @@ paths:
           format: "uuid"
         description: Client Identifier
 #=====Current Living Situation  API Docuementation End ============================
+
+#=====Current Living Situation API Docuementation Begins ============================
+  '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    currentLivingSituation:
+                      pagination:
+                        from: 0
+                        returned: 1
+                        total: 1
+                        maximum: 30
+                        sort: {}
+                      currentLivingSituations:
+                        - currentLivingSituationId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                          enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          livingSituation: 1
+                          verifiedBy: 1
+                          locationdetails: 1
+                          subsequentresidence: 2
+                          resourcestoobtain: 1
+                          movedtwoormore: 1
+                          currentLivingSituation: 2
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for currentLivingSituation.  Returns a list of currentLivingSituation ids,
+        based on the query parameters sent.  The query parameters are
+        cumulative, so each additional query parameter narrows the search down
+        further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-currentLivingSituations
+
+    post:
+      deprecated: true    
+      responses:
+        '201':
+          description: OK - New resource has been created.
+          content:
+            application/json:
+              schema:
+                example:
+                  currentLivingSituation:
+                    currentLivingSituationId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    livingSituation: 1
+                    verifiedBy: 1
+                    locationdetails: 1
+                    subsequentresidence: 2
+                    resourcestoobtain: 1
+                    movedtwoormore: 1
+                    currentLivingSituation: 2
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            access is not allowed.
+        '404':
+          description: Not Found   There is no resource behind the URI.
+        '422':
+          description: Unprocessable Entity - Request body is incorrect.
+        '500':
+          description: Internal Server Error.
+      description: |
+        Add an currentLivingSituation
+      operationId: POST_dep_clients-clientId-enrollments-enrollmentId-currentLivingSituation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  currentLivingSituation:
+                    currentLivingSituationId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    livingSituation: 1
+                    verifiedBy: 1
+                    locationdetails: 1
+                    subsequentresidence: 2
+                    resourcestoobtain: 1
+                    movedtwoormore: 1
+                    currentLivingSituation: 2
+        required: true
+    parameters:
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations/{currentlivingsituationid}':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    currentLivingSituation:
+                      currentLivingSituationId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                      enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                      clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                      livingSituation: 1
+                      verifiedBy: 1
+                      locationdetails: 1
+                      subsequentresidence: 2
+                      resourcestoobtain: 1
+                      movedtwoormore: 1
+                      currentLivingSituation: 2
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires an user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: Gets an currentLivingSituation using a URI resource parameter/ID.
+      operationId: >-
+        GET_dep_clients-clientId-enrollments-enrollmentId-currentLivingSituations-currentLivingSituationId
+    put:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+        '304':
+          description: Not Modified   The client can use cached data.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires a user.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Updates a specific currentLivingSituation specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        PUT_dep_clients-clientId-enrollments-enrollmentId-currentLivingSituations-currentLivingSituationId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  currentLivingSituation:
+                    currentLivingSituationId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                    livingSituation: 1
+                    verifiedBy: 1
+                    locationdetails: 1
+                    subsequentresidence: 2
+                    resourcestoobtain: 1
+                    movedtwoormore: 1
+                    currentLivingSituation: 2
+        required: true
+    delete:
+      deprecated: true    
+      responses:
+        '204':
+          description: OK   The resource was successfully deleted.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Deletes a specific currentLivingSituation specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        DELETE_dep_clients-clientId-enrollments-enrollmentId-currentLivingSituations-currentLivingSituationId
+    parameters:
+      - name: currentlivingsituationid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: currentLivingSituation Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations/{currentlivingsituationid}/history':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    currentLivingSituation:
+                      pagination:
+                        from: 0
+                        returned: 1
+                        total: 1
+                        maximum: 30
+                        sort: {}
+                      currentLivingSituations:
+                        - currentLivingSituationId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
+                          enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
+                          livingSituation: 1
+                          verifiedBy: 1
+                          locationdetails: 1
+                          subsequentresidence: 2
+                          resourcestoobtain: 1
+                          movedtwoormore: 1
+                          currentLivingSituation: 2
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for currentLivingSituation history.  Returns a list of currentLivingSituation ids history,
+        based on the query parameters sent.  The query parameters are
+        cumulative, so each additional query parameter narrows the search down
+        further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-currentLivingSituations-currentLivingSituationId-history
+    parameters:
+      - name: currentlivingsituationid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: currentLivingSituation Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+#=====Current Living Situation  API Docuementation End ============================
+
   '/clients/{clientid}/enrollments/{enrollmentid}/employments':
     get:
       responses:
@@ -4398,7 +5279,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exithousingassessments':
     get:
       responses:
         '200':
@@ -4497,7 +5378,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments/{exithousingassessmentid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exithousingassessments/{exithousingassessmentid}':
     get:
       responses:
         '200':
@@ -4607,7 +5488,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments/{exithousingassessmentid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exithousingassessments/{exithousingassessmentid}/history':
     get:
       responses:
         '200':
@@ -4673,7 +5554,288 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPaths':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    exitHousingAssessments:
+                      pagination:
+                        from: 0
+                        returned: 1
+                        total: 1
+                        maximum: 30
+                        sort: {}
+                      exitHousingAssessments:
+                        - exitHousingAssessmentId: a45e96ba-0287-4c9f-a1c2-5058a4acc1aa
+                          housingAssessment: 5
+                          subsidyInformation: 4
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for exitHousingAssessment.  Returns a list of
+        exitHousingAssessment ids, based on the query parameters sent.  The
+        query parameters are cumulative, so each additional query parameter
+        narrows the search down further.
+      operationId: >-
+        GET_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitHousingAssessments
+
+    post:
+      deprecated: true    
+      responses:
+        '201':
+          description: OK - New resource has been created.
+          content:
+            application/json:
+              schema:
+                example:
+                  exitHousingAssessment:
+                    exitHousingAssessmentId: a45e96ba-0287-4c9f-a1c2-5058a4acc1aa
+                    housingAssessment: 5
+                    subsidyInformation: 4
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            access is not allowed.
+        '404':
+          description: Not Found   There is no resource behind the URI.
+        '422':
+          description: Unprocessable Entity - Request body is incorrect.
+        '500':
+          description: Internal Server Error.
+      description: |
+        Add a exitHousingAssessment
+      operationId: >-
+        POST_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitHousingAssessments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  exitHousingAssessment:
+                    housingAssessment: 5
+                    subsidyInformation: 4
+        required: true
+    parameters:
+      - name: exitid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Exit Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments/{exithousingassessmentid}':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    exitHousingAssessment:
+                      exitHousingAssessmentId: a45e96ba-0287-4c9f-a1c2-5058a4acc1aa
+                      housingAssessment: 5
+                      subsidyInformation: 4
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires an user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: Gets a exitHousingAssessment using a URI resource parameter/ID.
+      operationId: >-
+        GET_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitHousingAssessments-exitHousingAssessmentId
+    put:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+        '304':
+          description: Not Modified   The client can use cached data.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires a user.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Updates a specific exitHousingAssessment specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        PUT_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitHousingAssessments-exitHousingAssessmentId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  exitHousingAssessment:
+                    housingAssessment: 5
+                    subsidyInformation: 4
+        required: true
+    delete:
+      deprecated: true    
+      responses:
+        '204':
+          description: OK   The resource was successfully deleted.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Deletes a specific exitHousingAssessment specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        DELETE_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitHousingAssessments-exitHousingAssessmentId
+    parameters:
+      - name: exithousingassessmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: exitHousingAssessment Identifier
+      - name: exitid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Exit Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments/{exithousingassessmentid}/history':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    exitHousingAssessments:
+                      pagination:
+                        from: 0
+                        returned: 1
+                        total: 1
+                        maximum: 30
+                        sort: {}
+                      exitHousingAssessments:
+                        - exitHousingAssessmentId: a45e96ba-0287-4c9f-a1c2-5058a4acc1aa
+                          housingAssessment: 5
+                          subsidyInformation: 4
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for exitHousingAssessment history.  Returns a list of
+        exitHousingAssessment ids  history, based on the query parameters sent.  The
+        query parameters are cumulative, so each additional query parameter
+        narrows the search down further.
+      operationId: >-
+        GET_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitHousingAssessments-exitHousingAssessmentId-history
+    parameters:
+      - name: exithousingassessmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: exitHousingAssessment Identifier
+      - name: exitid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Exit Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier        
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitpaths':
     get:
       responses:
         '200':
@@ -4765,7 +5927,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPaths/{exitPathid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitpaths/{exitPathid}':
     get:
       responses:
         '200':
@@ -4868,7 +6030,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPaths/{exitPathid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitpaths/{exitPathid}/history':
     get:
       responses:
         '200':
@@ -4931,6 +6093,270 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPaths':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    exitPaths:
+                      pagination:
+                        from: 0
+                        returned: 1
+                        total: 1
+                        maximum: 30
+                        sort: {}
+                      exitPaths:
+                        - exitPathId: 46b4e67b-08f4-4962-9a1e-3ff614aaea23
+                          connectionWithSoar: 9
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for exitPath.  Returns a list of exitPath ids, based on the
+        query parameters sent.  The query parameters are cumulative, so each
+        additional query parameter narrows the search down further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitPaths
+
+    post:
+      deprecated: true    
+      responses:
+        '201':
+          description: OK - New resource has been created.
+          content:
+            application/json:
+              schema:
+                example:
+                  exitPath:
+                    exitPathId: 46b4e67b-08f4-4962-9a1e-3ff614aaea23
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            access is not allowed.
+        '404':
+          description: Not Found   There is no resource behind the URI.
+        '422':
+          description: Unprocessable Entity - Request body is incorrect.
+        '500':
+          description: Internal Server Error.
+      description: |
+        Add a exitPath
+      operationId: POST_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitPaths
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  exitPath:
+                    connectionWithSoar: 9
+        required: true
+    parameters:
+      - name: exitid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Exit Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPaths/{exitPathid}':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    exitPath:
+                      exitPathId: 46b4e67b-08f4-4962-9a1e-3ff614aaea23
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires an user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: Gets a exitPath using a URI resource parameter/ID.
+      operationId: >-
+        GET_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitPaths-exitPathid
+    put:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+        '304':
+          description: Not Modified   The client can use cached data.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires a user.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: Updates a specific exitPath specified by the URI resource parameter/ID.
+      operationId: >-
+        PUT_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitPaths-exitPathid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  exitPath:
+                    connectionWithSoar: 9
+        required: true
+    delete:
+      deprecated: true    
+      responses:
+        '204':
+          description: OK   The resource was successfully deleted.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: Deletes a specific exitPath specified by the URI resource parameter/ID.
+      operationId: >-
+        DELETE_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitPaths-exitPathid
+    parameters:
+      - name: exitPathid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: exitPath Identifier
+      - name: exitid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Exit Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPaths/{exitPathid}/history':
+    get:
+      deprecated: true
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              schema:
+                example:
+                    exitPaths:
+                      pagination:
+                        from: 0
+                        returned: 1
+                        total: 1
+                        maximum: 30
+                        sort: {}
+                      exitPaths:
+                        - exitPathId: 46b4e67b-08f4-4962-9a1e-3ff614aaea23
+                          connectionWithSoar: 9
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for exitPath history.  Returns a list of exitPath ids history, based on the
+        query parameters sent.  The query parameters are cumulative, so each
+        additional query parameter narrows the search down further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitPaths-exitPathid-history
+    parameters:
+      - name: exitPathid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: exitPath Identifier
+      - name: exitid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Exit Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier        
   '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitrhys':
     get:
       responses:
@@ -7016,7 +8442,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/residentialMoveinDates':
+  '/clients/{clientid}/enrollments/{enrollmentid}/residentialmoveindates':
     get:
       responses:
         '200':
@@ -7107,7 +8533,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/residentialMoveinDates/{residentialmoveindateid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/residentialmoveindates/{residentialmoveindateid}':
     get:
       responses:
         '200':
@@ -7211,7 +8637,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/residentialMoveinDates/{residentialmoveindateid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/residentialmoveindates/{residentialmoveindateid}/history':
     get:
       responses:
         '200':
@@ -7270,6 +8696,266 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/residentialMoveinDates':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              example:
+                residentialMoveinDates:
+                  pagination:
+                    from: 0
+                    returned: 1
+                    total: 1
+                    maximum: 30
+                    sort: {}
+                  residentialMoveinDates:
+                    - residentialMoveinDateId: 37775c5e-72ea-4b1d-92ad-91c76decebd1
+                      inPermanentHousing: 0
+                      residentialMoveinDate: 04-05-2020
+              schema:
+                $ref: '#/components/schemas/residential_move_in_dates_ids'
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for residentialMoveinDate.  Returns a list of
+        residentialMoveinDate ids, based on the query parameters sent.  The
+        query parameters are cumulative, so each additional query parameter
+        narrows the search down further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-residentialMoveinDates
+
+    post:
+      deprecated: true    
+      responses:
+        '201':
+          description: OK - New resource has been created.
+          content:
+            application/json:
+              schema:
+                example:
+                  residentialMoveinDate:
+                    residentialMoveinDateId: 37775c5e-72ea-4b1d-92ad-91c76decebd1
+                    inPermanentHousing: 0
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            access is not allowed.
+        '404':
+          description: Not Found   There is no resource behind the URI.
+        '422':
+          description: Unprocessable Entity - Request body is incorrect.
+        '500':
+          description: Internal Server Error.
+      description: |
+        Add a residentialMoveinDate
+      operationId: POST_dep_clients-clientId-enrollments-enrollmentId-residentialMoveinDates
+      requestBody:
+        content:
+          application/json:
+            example:
+              residentialMoveinDate:
+                residentialMoveinDateId: 37775c5e-72ea-4b1d-92ad-91c76decebd1
+                inPermanentHousing: 0
+            schema:
+              $ref: '#/components/schemas/residential_move_in_date'
+        required: true
+    parameters:
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/residentialMoveinDates/{residentialmoveindateid}':
+    get:
+      deprecated: true
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              example:
+                residentialMoveinDate:
+                  residentialMoveinDateId: 37775c5e-72ea-4b1d-92ad-91c76decebd1
+                  inPermanentHousing: 0
+              schema:
+                $ref: '#/components/schemas/residential_move_in_date_id'
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires an user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: Gets a residentialMoveinDate using a URI resource parameter/ID.
+      operationId: >-
+        GET_dep_clients-clientId-enrollments-enrollmentId-residentialMoveinDates-residentialMoveinDateid
+    put:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+        '304':
+          description: Not Modified   The client can use cached data.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires a user.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Updates a specific residentialMoveinDate specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        PUT_dep_clients-clientId-enrollments-enrollmentId-residentialMoveinDates-residentialMoveinDateid
+      requestBody:
+        content:
+          application/json:
+            example:
+              residentialMoveinDate:
+                inPermanentHousing: 0
+                residentialMoveinDate: '04-05-2020 11:12'
+            schema:
+              $ref: '#/components/schemas/residential_move_in_date'
+        required: true
+    delete:
+      deprecated: true    
+      responses:
+        '204':
+          description: OK   The resource was successfully deleted.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Deletes a specific residentialMoveinDate specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        DELETE_dep_clients-clientId-enrollments-enrollmentId-residentialMoveinDates-residentialMoveinDateid
+    parameters:
+      - name: residentialmoveindateid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: residentialMoveinDate Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/residentialMoveinDates/{residentialmoveindateid}/history':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              example:
+                residentialMoveinDates:
+                  pagination:
+                    from: 0
+                    returned: 1
+                    total: 1
+                    maximum: 30
+                    sort: {}
+                  residentialMoveinDates:
+                    - residentialMoveinDateId: 37775c5e-72ea-4b1d-92ad-91c76decebd1
+                      inPermanentHousing: 0
+                      residentialMoveinDate: 04-05-2020
+              schema:
+                $ref: '#/components/schemas/residential_move_in_dates_ids'
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for residentialMoveinDate history.  Returns a list of
+        residentialMoveinDate ids history, based on the query parameters sent.  The
+        query parameters are cumulative, so each additional query parameter
+        narrows the search down further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-residentialMoveinDates-residentialMoveinDateid-history
+    parameters:
+      - name: residentialmoveindateid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: residentialMoveinDate Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier        
   '/clients/{clientid}/enrollments/{enrollmentid}/pathstatuses':
     get:
       responses:
@@ -7528,7 +9214,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/entryRhsps':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryrhsps':
     get:
       responses:
         '200':
@@ -7616,7 +9302,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/entryRhsps/{entryrhspid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryrhsps/{entryrhspid}':
     get:
       responses:
         '200':
@@ -7712,7 +9398,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/entryRhsps/{entryrhspid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryrhsps/{entryrhspid}/history':
     get:
       responses:
         '200':
@@ -7769,6 +9455,253 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryRhsps':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              example:
+                entryRhsps:
+                  pagination:
+                    from: 0
+                    returned: 1
+                    total: 1
+                    maximum: 30
+                    sort: {}
+                  entryRhsps:
+                    - entryRhspId: 4fe746e5-0323-46b9-866f-209d81dbda51
+                      worstHousingSituation: 781317225
+              schema:
+                $ref: '#/components/schemas/entry_rhsps_ids'
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for entryRhsp.  Returns a list of entryRhsp ids, based on the
+        query parameters sent.  The query parameters are cumulative, so each
+        additional query parameter narrows the search down further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-entryRhsps
+
+    post:
+      deprecated: true    
+      responses:
+        '201':
+          description: OK - New resource has been created.
+          content:
+            application/json:
+              schema:
+                example:
+                  entryRhsp:
+                    entryRhspId: c10f31e4-9e09-4fab-b788-e89fc074c9f8
+                    worstHousingSituation: 781317225
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            access is not allowed.
+        '404':
+          description: Not Found   There is no resource behind the URI.
+        '422':
+          description: Unprocessable Entity - Request body is incorrect.
+        '500':
+          description: Internal Server Error.
+      description: |
+        Add a entryRhsp
+      operationId: POST_dep_clients-clientId-enrollments-enrollmentId-entryRhsps
+      requestBody:
+        content:
+          application/json:
+            example:
+              entryRhsp:
+                worstHousingSituation: 781317225
+            schema:
+              $ref: '#/components/schemas/entry_rhsp'
+        required: true
+    parameters:
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryRhsps/{entryrhspid}':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              example:
+                entryRhsp:
+                  entryRhspId: c10f31e4-9e09-4fab-b788-e89fc074c9f8
+                  worstHousingSituation: 781317225
+              schema:
+                $ref: '#/components/schemas/entry_rhsp_id'
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires an user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: Gets a entryRhsp using a URI resource parameter/ID.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-entryRhsps-entryRhspId
+    put:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+        '304':
+          description: Not Modified   The client can use cached data.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires a user.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: Updates a specific entryRhsp specified by the URI resource parameter/ID.
+      operationId: PUT_dep_clients-clientId-enrollments-enrollmentId-entryRhsps-entryRhspId
+      requestBody:
+        content:
+          application/json:
+            example:
+              entryRhsp:
+                worstHousingSituation: 781317225
+            schema:
+              $ref: '#/components/schemas/entry_rhsp'
+        required: true
+    delete:
+      deprecated: true    
+      responses:
+        '204':
+          description: OK   The resource was successfully deleted.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: Deletes a specific entryRhsp specified by the URI resource parameter/ID.
+      operationId: DELETE_dep_clients-clientId-enrollments-enrollmentId-entryRhsps-entryRhspId
+    parameters:
+      - name: entryrhspid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: entryRhsp Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/entryRhsps/{entryrhspid}/history':
+    get:
+      deprecated: true
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              example:
+                entryRhsps:
+                  pagination:
+                    from: 0
+                    returned: 1
+                    total: 1
+                    maximum: 30
+                    sort: {}
+                  entryRhsps:
+                    - entryRhspId: 4fe746e5-0323-46b9-866f-209d81dbda51
+                      worstHousingSituation: 781317225
+              schema:
+                $ref: '#/components/schemas/entry_rhsps_ids'
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for entryRhsp history.  Returns a list of entryRhsp ids history, based on the
+        query parameters sent.  The query parameters are cumulative, so each
+        additional query parameter narrows the search down further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-entryRhsps-entryRhspId-history
+    parameters:
+      - name: entryrhspid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: entryRhsp Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier        
   '/clients/{clientid}/enrollments/{enrollmentid}/entryrhys':
     get:
       responses:
@@ -8545,7 +10478,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals':
+  '/clients/{clientid}/enrollments/{enrollmentid}/servicefareferrals':
     get:
       responses:
         '200':
@@ -8652,7 +10585,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals/{servicefareferralid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/servicefareferrals/{servicefareferralid}':
     get:
       responses:
         '200':
@@ -8767,7 +10700,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals/{servicefareferralid}/history':
+  '/clients/{clientid}/enrollments/{enrollmentid}/servicefareferrals/{servicefareferralid}/history':
     get:
       responses:
         '200':
@@ -8831,6 +10764,298 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              example:
+                serviceFaReferrals:
+                  pagination:
+                    from: 0
+                    returned: 1
+                    total: 0
+                    maximum: 30
+                    sort: {}
+                  serviceFaReferrals:
+                    - serviceFaReferralId: bf09eb50-b641-486e-bf7e-49e9faa37c41
+                      serviceCategory: 8945
+                      funderList: 1234
+                      typeProvided: 4566
+                      otherTypeProvided: Test
+                      subTypeProvided: 1234
+                      faAmount: 20.4
+                      referralOutcome: 1234
+              schema:
+                $ref: '#/components/schemas/service_fa_referrals_ids'
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for serviceFaReferral.  Returns a list of serviceFaReferral
+        ids, based on the query parameters sent.  The query parameters are
+        cumulative, so each additional query parameter narrows the search down
+        further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-serviceFaReferrals
+
+    post:
+      deprecated: true    
+      responses:
+        '201':
+          description: OK - New resource has been created.
+          content:
+            application/json:
+              schema:
+                example:
+                  serviceFaReferral:
+                    serviceFaReferralId: 408f4b64-4044-4e6d-86df-a1c080de3c65
+                    serviceCategory: 263773532
+                    funderList: 745361973
+                    typeProvided: 2086918905
+                    otherTypeProvided: jiXUV3kg8qIAsApVR40P
+                    subTypeProvided: -36199245
+                    faAmount: 3.14
+                    referralOutcome: 804780709
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            access is not allowed.
+        '404':
+          description: Not Found   There is no resource behind the URI.
+        '422':
+          description: Unprocessable Entity - Request body is incorrect.
+        '500':
+          description: Internal Server Error.
+      description: |
+        Add a serviceFaReferral
+      operationId: POST_dep_clients-clientId-enrollments-enrollmentId-serviceFaReferrals
+      requestBody:
+        content:
+          application/json:
+            example:
+              serviceFaReferral:
+                serviceCategory: 8945
+                funderList: 1234
+                typeProvided: 4566
+                otherTypeProvided: Test
+                subTypeProvided: 1234
+                referralOutcome: 1234
+                faAmount: 20.4
+            schema:
+              $ref: '#/components/schemas/service_fa_referral'
+        required: true
+    parameters:
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals/{servicefareferralid}':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              example:
+                serviceFaReferral:
+                  serviceFaReferralId: 408f4b64-4044-4e6d-86df-a1c080de3c65
+                  serviceCategory: 263773532
+                  funderList: 745361973
+                  typeProvided: 2086918905
+                  otherTypeProvided: jiXUV3kg8qIAsApVR40P
+                  subTypeProvided: -36199245
+                  faAmount: 3.14
+                  referralOutcome: 804780709
+              schema:
+                $ref: '#/components/schemas/service_fa_referral_id'
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires an user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: Gets a serviceFaReferral using a URI resource parameter/ID.
+      operationId: >-
+        GET_dep_clients-clientId-enrollments-enrollmentId-serviceFaReferrals-serviceFaReferralid
+    put:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+        '304':
+          description: Not Modified   The client can use cached data.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires a user.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Updates a specific serviceFaReferral specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        PUT_dep_clients-clientId-enrollments-enrollmentId-serviceFaReferrals-serviceFaReferralid
+      requestBody:
+        content:
+          application/json:
+            example:
+              serviceFaReferral:
+                serviceCategory: 8945
+                funderList: 1234
+                typeProvided: 4566
+                otherTypeProvided: Test
+                subTypeProvided: 1234
+                referralOutcome: 1234
+                faAmount: 20.4
+            schema:
+              $ref: '#/components/schemas/service_fa_referral'
+        required: true
+    delete:
+      deprecated: true    
+      responses:
+        '204':
+          description: OK   The resource was successfully deleted.
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '401':
+          description: Unauthorized   The request requires user authentication.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error.
+      description: >-
+        Deletes a specific serviceFaReferral specified by the URI resource
+        parameter/ID.
+      operationId: >-
+        DELETE_dep_clients-clientId-enrollments-enrollmentId-serviceFaReferrals-serviceFaReferralid
+    parameters:
+      - name: servicefareferralid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: serviceFaReferral Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier
+  '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals/{servicefareferralid}/history':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: OK   Everything is working.
+          content:
+            application/json:
+              example:
+                serviceFaReferrals:
+                  pagination:
+                    from: 0
+                    returned: 1
+                    total: 0
+                    maximum: 30
+                    sort: {}
+                  serviceFaReferrals:
+                    - serviceFaReferralId: bf09eb50-b641-486e-bf7e-49e9faa37c41
+                      serviceCategory: 8945
+                      funderList: 1234
+                      typeProvided: 4566
+                      otherTypeProvided: Test
+                      subTypeProvided: 1234
+                      faAmount: 20.4
+                      referralOutcome: 1234
+              schema:
+                $ref: '#/components/schemas/service_fa_referrals_ids'
+        '400':
+          description: Bad Request   The request was invalid or cannot be served.
+        '403':
+          description: >-
+            Forbidden   The server understood the request, but is refusing it or
+            the access is not allowed.
+        '404':
+          description: Not found   There is no resource behind the URI.
+        '500':
+          description: Internal Server Error
+      description: >-
+        Searches for serviceFaReferral history.  Returns a list of serviceFaReferral
+        ids history, based on the query parameters sent.  The query parameters are
+        cumulative, so each additional query parameter narrows the search down
+        further.
+      operationId: GET_dep_clients-clientId-enrollments-enrollmentId-serviceFaReferrals-serviceFaReferralid-history
+    parameters:
+      - name: servicefareferralid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: serviceFaReferral Identifier
+      - name: enrollmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Enrollment Identifier
+      - name: clientid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Client Identifier        
   '/clients/{clientid}/veteraninfos':
     get:
       responses:
