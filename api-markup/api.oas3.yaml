@@ -1,12 +1,12 @@
 openapi: 3.0.0
 info:
   title: 2020 HMIS
-  version: "1.0.9"
+  version: "1.0.10"
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
 servers:
-  - url: 'https://www.hslynk.com/hmis-clientapi/rest/v2020'
+  - url: 'https://api.hslynk.com/hmis-clientapi/rest/v2020'
 paths:
   /clients:
     get:
@@ -3020,7 +3020,7 @@ paths:
 #=====Assessment Questions API Docuementation Deprecated Begins ============================
   '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -3062,7 +3062,7 @@ paths:
       operationId: GET_dep_clients-clientId-enrollments-enrollmentId-assessmentQuestions
 
     post:
-      deprecated: true    
+      deprecated: true
       responses:
         '201':
           description: OK - New resource has been created.
@@ -3128,7 +3128,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions/{assessmentquestionid}':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -3161,7 +3161,7 @@ paths:
       operationId: >-
         GET_dep_clients-clientId-enrollments-enrollmentId-assessmentQuestions-assessmentQuestionId
     put:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -3200,7 +3200,7 @@ paths:
                     assessmentQuestion: Question
         required: true
     delete:
-      deprecated: true    
+      deprecated: true
       responses:
         '204':
           description: OK   The resource was successfully deleted.
@@ -3245,7 +3245,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/assessmentQuestions/{assessmentquestionid}/history':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -3591,7 +3591,7 @@ paths:
 #=====Assessment Result API Docuementation Begins ============================
   '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -3631,7 +3631,7 @@ paths:
       operationId: GET_dep_clients-clientId-enrollments-enrollmentId-assessmentResults
 
     post:
-      deprecated: true    
+      deprecated: true
       responses:
         '201':
           description: OK - New resource has been created.
@@ -3693,7 +3693,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults/{assessmentresultid}':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -3726,7 +3726,7 @@ paths:
       operationId: >-
         GET_dep_clients-clientId-enrollments-enrollmentId-assessmentResults-assessmentResultId
     put:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -3765,7 +3765,7 @@ paths:
                     assessmentResult: Question
         required: true
     delete:
-      deprecated: true    
+      deprecated: true
       responses:
         '204':
           description: OK   The resource was successfully deleted.
@@ -3810,7 +3810,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/assessmentResults/{assessmentresultid}/history':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -4462,7 +4462,7 @@ paths:
 #=====Current Living Situation API Docuementation Begins ============================
   '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -4505,7 +4505,7 @@ paths:
       operationId: GET_dep_clients-clientId-enrollments-enrollmentId-currentLivingSituations
 
     post:
-      deprecated: true    
+      deprecated: true
       responses:
         '201':
           description: OK - New resource has been created.
@@ -4575,7 +4575,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations/{currentlivingsituationid}':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -4610,7 +4610,7 @@ paths:
       operationId: >-
         GET_dep_clients-clientId-enrollments-enrollmentId-currentLivingSituations-currentLivingSituationId
     put:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -4651,7 +4651,7 @@ paths:
                     currentLivingSituation: 2
         required: true
     delete:
-      deprecated: true    
+      deprecated: true
       responses:
         '204':
           description: OK   The resource was successfully deleted.
@@ -4696,7 +4696,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/currentLivingSituations/{currentlivingsituationid}/history':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -5556,7 +5556,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -5594,7 +5594,7 @@ paths:
         GET_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitHousingAssessments
 
     post:
-      deprecated: true    
+      deprecated: true
       responses:
         '201':
           description: OK - New resource has been created.
@@ -5657,7 +5657,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments/{exithousingassessmentid}':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -5685,7 +5685,7 @@ paths:
       operationId: >-
         GET_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitHousingAssessments-exitHousingAssessmentId
     put:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -5718,7 +5718,7 @@ paths:
                     subsidyInformation: 4
         required: true
     delete:
-      deprecated: true    
+      deprecated: true
       responses:
         '204':
           description: OK   The resource was successfully deleted.
@@ -5770,7 +5770,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitHousingAssessments/{exithousingassessmentid}/history':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -5834,7 +5834,7 @@ paths:
         schema:
           type: string
           format: "uuid"
-        description: Client Identifier        
+        description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitpaths':
     get:
       responses:
@@ -6095,7 +6095,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPaths':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -6130,7 +6130,7 @@ paths:
       operationId: GET_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitPaths
 
     post:
-      deprecated: true    
+      deprecated: true
       responses:
         '201':
           description: OK - New resource has been created.
@@ -6189,7 +6189,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPaths/{exitPathid}':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -6215,7 +6215,7 @@ paths:
       operationId: >-
         GET_dep_clients-clientId-enrollments-enrollmentId-exits-exitId-exitPaths-exitPathid
     put:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -6245,7 +6245,7 @@ paths:
                     connectionWithSoar: 9
         required: true
     delete:
-      deprecated: true    
+      deprecated: true
       responses:
         '204':
           description: OK   The resource was successfully deleted.
@@ -6356,7 +6356,7 @@ paths:
         schema:
           type: string
           format: "uuid"
-        description: Client Identifier        
+        description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitrhys':
     get:
       responses:
@@ -8698,7 +8698,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/residentialMoveinDates':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -8736,7 +8736,7 @@ paths:
       operationId: GET_dep_clients-clientId-enrollments-enrollmentId-residentialMoveinDates
 
     post:
-      deprecated: true    
+      deprecated: true
       responses:
         '201':
           description: OK - New resource has been created.
@@ -8819,7 +8819,7 @@ paths:
       operationId: >-
         GET_dep_clients-clientId-enrollments-enrollmentId-residentialMoveinDates-residentialMoveinDateid
     put:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -8853,7 +8853,7 @@ paths:
               $ref: '#/components/schemas/residential_move_in_date'
         required: true
     delete:
-      deprecated: true    
+      deprecated: true
       responses:
         '204':
           description: OK   The resource was successfully deleted.
@@ -8898,7 +8898,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/residentialMoveinDates/{residentialmoveindateid}/history':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -8955,7 +8955,7 @@ paths:
         schema:
           type: string
           format: "uuid"
-        description: Client Identifier        
+        description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/pathstatuses':
     get:
       responses:
@@ -9457,7 +9457,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/entryRhsps':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -9493,7 +9493,7 @@ paths:
       operationId: GET_dep_clients-clientId-enrollments-enrollmentId-entryRhsps
 
     post:
-      deprecated: true    
+      deprecated: true
       responses:
         '201':
           description: OK - New resource has been created.
@@ -9547,7 +9547,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/entryRhsps/{entryrhspid}':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -9574,7 +9574,7 @@ paths:
       description: Gets a entryRhsp using a URI resource parameter/ID.
       operationId: GET_dep_clients-clientId-enrollments-enrollmentId-entryRhsps-entryRhspId
     put:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -9604,7 +9604,7 @@ paths:
               $ref: '#/components/schemas/entry_rhsp'
         required: true
     delete:
-      deprecated: true    
+      deprecated: true
       responses:
         '204':
           description: OK   The resource was successfully deleted.
@@ -9701,7 +9701,7 @@ paths:
         schema:
           type: string
           format: "uuid"
-        description: Client Identifier        
+        description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/entryrhys':
     get:
       responses:
@@ -10766,7 +10766,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -10809,7 +10809,7 @@ paths:
       operationId: GET_dep_clients-clientId-enrollments-enrollmentId-serviceFaReferrals
 
     post:
-      deprecated: true    
+      deprecated: true
       responses:
         '201':
           description: OK - New resource has been created.
@@ -10875,7 +10875,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals/{servicefareferralid}':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -10909,7 +10909,7 @@ paths:
       operationId: >-
         GET_dep_clients-clientId-enrollments-enrollmentId-serviceFaReferrals-serviceFaReferralid
     put:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -10948,7 +10948,7 @@ paths:
               $ref: '#/components/schemas/service_fa_referral'
         required: true
     delete:
-      deprecated: true    
+      deprecated: true
       responses:
         '204':
           description: OK   The resource was successfully deleted.
@@ -10993,7 +10993,7 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/serviceFaReferrals/{servicefareferralid}/history':
     get:
-      deprecated: true    
+      deprecated: true
       responses:
         '200':
           description: OK   Everything is working.
@@ -11055,7 +11055,7 @@ paths:
         schema:
           type: string
           format: "uuid"
-        description: Client Identifier        
+        description: Client Identifier
   '/clients/{clientid}/veteraninfos':
     get:
       responses:
@@ -13136,7 +13136,7 @@ paths:
         required: true
         schema:
           type: string
-  /hmisTypes:
+  /hmistypes:
     get:
       responses:
         '200':
@@ -13230,7 +13230,7 @@ paths:
                               type: string
                           type: object
       operationId: GET_hmisTypes
-  '/hmisTypes/{name}/values':
+  '/hmistypes/{name}/values':
     get:
       responses:
         '200':
@@ -13717,7 +13717,7 @@ paths:
         in: path
         required: true
         schema:
-          type: string          
+          type: string
 components:
   examples:
     application/json:
