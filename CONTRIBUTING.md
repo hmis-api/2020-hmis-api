@@ -5,7 +5,7 @@ The HMIS APIs are an open source project and your contribution is very much appr
 
 To-do: add issue submission guidelines.
 
-2. Fork the repository on Github and make your changes in a branch. We have these API conventions: https://github.com/servinglynk/hslynk-open-source-docs/wiki/api-style-guide-(conventions)
+2. Fork the repository on Github and make your changes in a branch. We have these API conventions: https://github.com/servinglynk/hslynk-open-source-docs/wiki/HSLynk-API-conventions.
 
 To-do: add Lint code validation instructions.
 
