@@ -11592,7 +11592,7 @@ paths:
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectid}/projectCocs':
+  '/projects/{projectid}/projectcocs':
     get:
       responses:
         '200':
@@ -11675,7 +11675,7 @@ paths:
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectid}/projectCocs/{projectcocid}':
+  '/projects/{projectid}/projectcocs/{projectcocid}':
     get:
       responses:
         '200':
@@ -11768,7 +11768,7 @@ paths:
         schema:
           type: string
         description: Project Identifier
-  '/projects/{projectid}/projectCocs/{projectcocid}/history':
+  '/projects/{projectid}/projectcocs/{projectcocid}/history':
     get:
       responses:
         '200':
