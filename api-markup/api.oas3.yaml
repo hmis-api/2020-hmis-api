@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: 2020 HMIS
-  version: "1.0.11"
+  version: "1.0.12"
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
@@ -959,7 +959,11 @@ paths:
                                     "hmisHouseholdId": {
                                       "type": "string",
                                       "format": "uuid",
-                                    }  
+                                    },
+                                "genericHouseHoldId":{
+                                  "type": "string",
+                                  "format": "uuid",
+                                }                                    
                                 }
                               }
                             }
@@ -996,6 +1000,7 @@ paths:
                           entryFromStreetEssh: 1
                           chronicHomeless: 1
                           hmisHouseholdId: 8e956388-b909-41ea-b1d0-203e9cc15c45
+                          genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1                          
         '400':
           description: Bad Request   The request was invalid or cannot be served.
         '403':
@@ -1161,7 +1166,11 @@ paths:
                           },"hmisHouseholdId": {
                                       "type": "string",
                                       "format": "uuid",
-                                    }  
+                                    },
+                                "genericHouseHoldId":{
+                                  "type": "string",
+                                  "format": "uuid",
+                                }                                    
                         }
                       }
                     }
@@ -1189,6 +1198,7 @@ paths:
                     chronicHomeless: 1
                     dateToStreetEssh: 1
                     hmisHouseholdId: 8e956388-b909-41ea-b1d0-203e9cc15c45
+                    genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1                    
         required: true
     parameters:
       - name: clientid
@@ -2476,7 +2486,11 @@ paths:
                         "hmisHouseholdId": {
                                       "type": "string",
                                       "format": "uuid",
-                                    }  
+                                    },
+                                "genericHouseHoldId":{
+                                  "type": "string",
+                                  "format": "uuid",
+                                }                                    
                       }
                     }
                   }
@@ -2712,6 +2726,7 @@ paths:
                   losUnderThreshold: 1
                   previousStreetESSH: 1
                   hmisHouseholdId: 8e956388-b909-41ea-b1d0-203e9cc15c45
+                  genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1                  
 
         '400':
           description: Bad Request   The request was invalid or cannot be served.
@@ -2850,7 +2865,11 @@ paths:
                         "hmisHouseholdId": {
                            "type": "string",
                            "format": "uuid",
-                        }  
+                        },
+                                "genericHouseHoldId":{
+                                  "type": "string",
+                                  "format": "uuid",
+                                }                        
                       }
                     }
                   }
@@ -2878,6 +2897,7 @@ paths:
                     chronicHomeless: 1
                     dateToStreetEssh: 1
                     hmisHouseholdId: 8e956388-b909-41ea-b1d0-203e9cc15c45
+                    genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1                    
         required: true
     delete:
       responses:
@@ -3032,7 +3052,11 @@ paths:
                                     "hmisHouseholdId": {
                                       "type": "string",
                                       "format": "uuid",
-                                    }  
+                                    },
+                                "genericHouseHoldId":{
+                                  "type": "string",
+                                  "format": "uuid",
+                                }                                    
                               }
                             }
                           }
@@ -3067,6 +3091,7 @@ paths:
                           entryFromStreetEssh: 1
                           chronicHomeless: 1
                           hmisHouseholdId: 8e956388-b909-41ea-b1d0-203e9cc15c45
+                          genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1                          
       '400':
         description: Bad Request   The request was invalid or cannot be served.
       '403':
