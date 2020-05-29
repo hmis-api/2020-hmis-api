@@ -64,11 +64,15 @@ paths:
                                   "clientId",
                                   "dedupClientId",
                                   "firstName",
+                                  "firstNameHashStatus",
                                   "middleName",
+                                  "middleNameHashStatus",
                                   "lastName",
+                                  "lastNameHashStatus",
                                   "nameSuffix",
                                   "nameDataQuality",
                                   "ssn",
+                                  "ssnHashStatus",
                                   "ssnDataQuality",
                                   "dob",
                                   "dobDataQuality",
@@ -89,7 +93,16 @@ paths:
                                   "firstName": {
                                     "type": "string",
                                   },
+                                  "firstNameHashStatus": {
+                                      "type": "string",
+                                  },
+                                  "middleNameHashStatus": {
+                                    "type": "string",
+                                  },
                                   "middleName": {
+                                    "type": "string",
+                                  },
+                                  "lastNameHashStatus": {
                                     "type": "string",
                                   },
                                   "lastName": {
@@ -103,6 +116,9 @@ paths:
                                   },
                                   "ssn": {
                                     "type": "string",
+                                  },
+                                  "ssnHashStatus": {
+                                      "type": "string",
                                   },
                                   "ssnDataQuality": {
                                     "type": "integer"
@@ -144,11 +160,15 @@ paths:
                         - clientId: 3a93fe32-8118-4883-982f-a267435856de
                           dedupClientId: 46b89200-656a-11e8-985f-02fe61f7863e
                           firstName: Taylor
+                          firstNameHashStatus: 1
                           middleName: Robin
+                          middleNameHashStatus: 1
                           lastName: Steve
+                          lastNameHashStatus: 1
                           nameSuffix: 'TS                                                '
                           nameDataQuality: 2
                           ssn: 123-45-6789
+                          ssnHashStatus: 1
                           ssnDataQuality: 2
                           dob: 1473746618394
                           dobDataQuality: 9
@@ -159,11 +179,15 @@ paths:
                         - clientId: bb1c4869-52af-4b4f-a9b6-a48f93c35294
                           dedupClientId: 46b89200-656a-11e8-985f-02fe61f826e
                           firstName: 'First Name'
+                          firstNameHashStatus: 1
                           middleName: 'Middle Name'
+                          middleNameHashStatus: 1
                           lastName: 'LAST NAME'
+                          lastNameHashStatus: 1
                           nameSuffix: 'NS'
                           nameDataQuality: 1
                           ssn: '123-45-6789'
+                          ssnHashStatus: 1
                           ssnDataQuality: 1
                           dob: 1459517834983
                           dobDataQuality: 1
@@ -273,11 +297,16 @@ paths:
                       "type": "object",
                       "required": [
                         "firstName",
+                        "firstNameHashStatus",
                         "middleName",
+                        "middleNameHashStatus",
                         "lastName",
+                        "lastNameHashStatus",
                         "nameSuffix",
                         "nameDataQuality",
                         "ssn",
+                        "ssnHashStatus",
+                        "ssnDataQuality",
                         "ssnDataQuality",
                         "dob",
                         "dobDataQuality",
@@ -293,7 +322,16 @@ paths:
                         "firstName": {
                           "type": "string",
                         },
+                        "firstNameHashStatus": {
+                            "type": "string",
+                        },
+                        "middleNameHashStatus": {
+                          "type": "string",
+                        },
                         "middleName": {
+                          "type": "string",
+                        },
+                        "lastNameHashStatus": {
                           "type": "string",
                         },
                         "lastName": {
@@ -304,6 +342,9 @@ paths:
                         },
                         "nameDataQuality": {
                           "type": "integer"
+                        },
+                        "ssnHashStatus": {
+                          "type": "string",
                         },
                         "ssn": {
                           "type": "string",
@@ -345,11 +386,15 @@ paths:
               example:
                   client:
                     firstName: First Name
+                    firstNameHashStatus: 1
                     middleName: Middle Name
+                    middleNameHashStatus: 1
                     lastName: LAST NAME
+                    lastNameHashStatus: 1
                     nameSuffix: NS
                     nameDataQuality: 1
                     ssn: 123-45-6789
+                    ssnHashStatus: 1
                     ssnDataQuality: 1
                     dob: 1459517834983
                     dobDataQuality: 1
@@ -380,11 +425,15 @@ paths:
                         "required": [
                           "clientId",
                           "firstName",
+                          "firstNameHashStatus",
                           "middleName",
+                          "middleNameHashStatus",
                           "lastName",
+                          "lastNameHashStatus",
                           "nameSuffix",
                           "nameDataQuality",
                           "ssn",
+                          "ssnHashStatus",
                           "ssnDataQuality",
                           "dob",
                           "dobDataQuality",
@@ -404,7 +453,16 @@ paths:
                           "firstName": {
                             "type": "string",
                           },
+                          "firstNameHashStatus": {
+                              "type": "string",
+                          },
+                          "middleNameHashStatus": {
+                            "type": "string",
+                          },
                           "middleName": {
+                            "type": "string",
+                          },
+                          "lastNameHashStatus": {
                             "type": "string",
                           },
                           "lastName": {
@@ -415,6 +473,9 @@ paths:
                           },
                           "nameDataQuality": {
                             "type": "integer"
+                          },
+                          "ssnHashStatus": {
+                            "type": "string",
                           },
                           "ssn": {
                             "type": "string",
@@ -456,12 +517,16 @@ paths:
                 example:
                   client:
                     clientId: 8547a63e-4659-412f-b5fa-200e03b62ae8
-                    firstName: 'First Name'
-                    middleName: 'Middle Name'
-                    lastName: 'LAST NAME'
-                    nameSuffix: 'NS'
+                    firstName: First Name
+                    firstNameHashStatus: 1
+                    middleName: Middle Name
+                    middleNameHashStatus: 1
+                    lastName: LAST NAME
+                    lastNameHashStatus: 1
+                    nameSuffix: NS
                     nameDataQuality: 1
-                    ssn: '123-45-6789'
+                    ssn: 123-45-6789
+                    ssnHashStatus: 1
                     ssnDataQuality: 1
                     dob: 1459517834983
                     dobDataQuality: 1
@@ -524,11 +589,15 @@ paths:
                         "type": "object",
                         "required": [
                           "firstName",
+                          "firstNameHashStatus",
                           "middleName",
+                          "middleNameHashStatus",
                           "lastName",
+                          "lastNameHashStatus",
                           "nameSuffix",
                           "nameDataQuality",
                           "ssn",
+                          "ssnHashStatus",
                           "ssnDataQuality",
                           "dob",
                           "dobDataQuality",
@@ -544,7 +613,16 @@ paths:
                           "firstName": {
                             "type": "string",
                           },
+                          "firstNameHashStatus": {
+                              "type": "string",
+                          },
+                          "middleNameHashStatus": {
+                            "type": "string",
+                          },
                           "middleName": {
+                            "type": "string",
+                          },
+                          "lastNameHashStatus": {
                             "type": "string",
                           },
                           "lastName": {
@@ -555,6 +633,9 @@ paths:
                           },
                           "nameDataQuality": {
                             "type": "integer"
+                          },
+                          "ssnHashStatus": {
+                            "type": "string",
                           },
                           "ssn": {
                             "type": "string",
@@ -596,11 +677,15 @@ paths:
                 example:
                   client:
                     firstName: First Name
+                    firstNameHashStatus: 1
                     middleName: Middle Name
+                    middleNameHashStatus: 1
                     lastName: LAST NAME
+                    lastNameHashStatus: 1
                     nameSuffix: NS
                     nameDataQuality: 1
                     ssn: 123-45-6789
+                    ssnHashStatus: 1
                     ssnDataQuality: 1
                     dob: 1459517834983
                     dobDataQuality: 1
@@ -695,11 +780,15 @@ paths:
                                 "clientId",
                                 "dedupClientId",
                                 "firstName",
+                                "firstNameHashStatus",
                                 "middleName",
+                                "middleNameHashStatus",
                                 "lastName",
+                                "lastNameHashStatus",
                                 "nameSuffix",
                                 "nameDataQuality",
                                 "ssn",
+                                "ssnHashStatus",
                                 "ssnDataQuality",
                                 "dob",
                                 "dobDataQuality",
@@ -720,7 +809,16 @@ paths:
                                 "firstName": {
                                   "type": "string",
                                 },
+                                "firstNameHashStatus": {
+                                    "type": "string",
+                                },
+                                "middleNameHashStatus": {
+                                  "type": "string",
+                                },
                                 "middleName": {
+                                  "type": "string",
+                                },
+                                "lastNameHashStatus": {
                                   "type": "string",
                                 },
                                 "lastName": {
@@ -731,6 +829,9 @@ paths:
                                 },
                                 "nameDataQuality": {
                                   "type": "integer"
+                                },
+                                "ssnHashStatus": {
+                                  "type": "string",
                                 },
                                 "ssn": {
                                   "type": "string",
@@ -774,12 +875,16 @@ paths:
                     clients:
                       - clientId: 3a93fe32-8118-4883-982f-a267435856de
                         dedupClientId: 46b89200-656a-11e8-985f-02fe61f7863e
-                        firstName: Taylor
-                        middleName: Robin
-                        lastName: Steve
-                        nameSuffix: 'TS                                                '
-                        nameDataQuality: 2
+                        firstName: First Name
+                        firstNameHashStatus: 1
+                        middleName: Middle Name
+                        middleNameHashStatus: 1
+                        lastName: LAST NAME
+                        lastNameHashStatus: 1
+                        nameSuffix: NS
+                        nameDataQuality: 1
                         ssn: 123-45-6789
+                        ssnHashStatus: 1
                         ssnDataQuality: 2
                         dob: 1473746618394
                         dobDataQuality: 9
@@ -955,7 +1060,7 @@ paths:
                                   },
                                     "chronicHomeless": {
                                       "type": "integer"
-                                    },                                  
+                                    },
                                   "dateCreated": {
                                     "type": "string",
                                     "format": "mm-dd-yyyy",
@@ -2829,7 +2934,7 @@ paths:
                         },
                         "chronicHomeless": {
                           "type": "integer"
-                        },                        
+                        },
                         "dateToStreetEssh": {
                           "type": "integer"
                         }
@@ -7183,7 +7288,7 @@ paths:
         description: Client Identifier
 #=====Assessment API Docuementation End ============================
 #=====Assessment Questions API Docuementation Begins ============================
-  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentquestions':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessments/{assessmentid}/assessmentquestions':
     get:
       responses:
         '200':
@@ -7237,9 +7342,6 @@ paths:
                               "type": "object",
                               "required": [
                                 "assessmentQuestionId",
-                                "enrollmentId",
-                                "clientId",
-                                "assessmentId",
                                 "assessmentQuestionGroup",
                                 "assessmentQuestionOrder",
                                 "assessmentAnswer",
@@ -7247,18 +7349,6 @@ paths:
                               ],
                               "properties": {
                                 "assessmentQuestionId": {
-                                  "type": "string",
-                                  "format": "uuid",
-                                },
-                                "enrollmentId": {
-                                  "type": "string",
-                                  "format": "uuid",
-                                },
-                                "clientId": {
-                                  "type": "string",
-                                  "format": "uuid",
-                                },
-                                "assessmentId": {
                                   "type": "string",
                                   "format": "uuid",
                                 },
@@ -7291,9 +7381,6 @@ paths:
                         sort: {}
                       assessmentQuestions:
                         - assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
-                          enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                          clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                          assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
                           assessmentQuestionGroup: location
                           assessmentQuestionOrder: 1
                           assessmentAnswer:  Answer
@@ -7332,9 +7419,6 @@ paths:
                         "type": "object",
                         "required": [
                           "assessmentQuestionId",
-                          "enrollmentId",
-                          "clientId",
-                          "assessmentId",
                           "assessmentQuestionGroup",
                           "assessmentQuestionOrder",
                           "assessmentAnswer",
@@ -7342,18 +7426,6 @@ paths:
                         ],
                         "properties": {
                           "assessmentQuestionId": {
-                            "type": "string",
-                            "format": "uuid",
-                          },
-                          "enrollmentId": {
-                            "type": "string",
-                            "format": "uuid",
-                          },
-                          "clientId": {
-                            "type": "string",
-                            "format": "uuid",
-                          },
-                          "assessmentId": {
                             "type": "string",
                             "format": "uuid",
                           },
@@ -7376,9 +7448,6 @@ paths:
                 example:
                   assessmentQuestion:
                     assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
-                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                    assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
                     assessmentQuestionGroup: location
                     assessmentQuestionOrder: 1
                     assessmentAnswer:  Answer
@@ -7414,9 +7483,6 @@ paths:
                       "type": "object",
                       "required": [
                         "assessmentQuestionId",
-                        "enrollmentId",
-                        "clientId",
-                        "assessmentId",
                         "assessmentQuestionGroup",
                         "assessmentQuestionOrder",
                         "assessmentAnswer",
@@ -7424,18 +7490,6 @@ paths:
                       ],
                       "properties": {
                         "assessmentQuestionId": {
-                          "type": "string",
-                          "format": "uuid",
-                        },
-                        "enrollmentId": {
-                          "type": "string",
-                          "format": "uuid",
-                        },
-                        "clientId": {
-                          "type": "string",
-                          "format": "uuid",
-                        },
-                        "assessmentId": {
                           "type": "string",
                           "format": "uuid",
                         },
@@ -7458,15 +7512,19 @@ paths:
               example:
                   assessmentQuestion:
                     assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
-                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                    assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
                     assessmentQuestionGroup: location
                     assessmentQuestionOrder: 1
                     assessmentAnswer:  Answer
                     assessmentQuestion: Question
         required: true
     parameters:
+      - name: assessmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Assessment Identifier
       - name: enrollmentid
         in: path
         required: true
@@ -7481,7 +7539,7 @@ paths:
           type: string
           format: "uuid"
         description: Client Identifier
-  '/clients/{clientid}/enrollments/{enrollmentid}/assessmentquestions/{assessmentquestionid}':
+  '/clients/{clientid}/enrollments/{enrollmentid}/assessments/{assessmentid}/assessmentquestions/{assessmentquestionid}':
     get:
       responses:
         '200':
@@ -7499,9 +7557,6 @@ paths:
                         "type": "object",
                         "required": [
                           "assessmentQuestionId",
-                          "enrollmentId",
-                          "clientId",
-                          "assessmentId",
                           "assessmentQuestionGroup",
                           "assessmentQuestionOrder",
                           "assessmentAnswer",
@@ -7509,18 +7564,6 @@ paths:
                         ],
                         "properties": {
                           "assessmentQuestionId": {
-                            "type": "string",
-                            "format": "uuid",
-                          },
-                          "enrollmentId": {
-                            "type": "string",
-                            "format": "uuid",
-                          },
-                          "clientId": {
-                            "type": "string",
-                            "format": "uuid",
-                          },
-                          "assessmentId": {
                             "type": "string",
                             "format": "uuid",
                           },
@@ -7543,9 +7586,6 @@ paths:
                 example:
                     assessmentQuestion:
                       assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
-                      enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                      clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                      assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
                       assessmentQuestionGroup: location
                       assessmentQuestionOrder: 1
                       assessmentAnswer:  Answer
@@ -7602,9 +7642,6 @@ paths:
                       "type": "object",
                       "required": [
                         "assessmentQuestionId",
-                        "enrollmentId",
-                        "clientId",
-                        "assessmentId",
                         "assessmentQuestionGroup",
                         "assessmentQuestionOrder",
                         "assessmentAnswer",
@@ -7612,18 +7649,6 @@ paths:
                       ],
                       "properties": {
                         "assessmentQuestionId": {
-                          "type": "string",
-                          "format": "uuid",
-                        },
-                        "enrollmentId": {
-                          "type": "string",
-                          "format": "uuid",
-                        },
-                        "clientId": {
-                          "type": "string",
-                          "format": "uuid",
-                        },
-                        "assessmentId": {
                           "type": "string",
                           "format": "uuid",
                         },
@@ -7646,9 +7671,6 @@ paths:
               example:
                   assessmentQuestion:
                     assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
-                    enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                    clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                    assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
                     assessmentQuestionGroup: location
                     assessmentQuestionOrder: 1
                     assessmentAnswer:  Answer
@@ -7751,9 +7773,6 @@ paths:
                               "type": "object",
                               "required": [
                                 "assessmentQuestionId",
-                                "enrollmentId",
-                                "clientId",
-                                "assessmentId",
                                 "assessmentQuestionGroup",
                                 "assessmentQuestionOrder",
                                 "assessmentAnswer",
@@ -7761,18 +7780,6 @@ paths:
                               ],
                               "properties": {
                                 "assessmentQuestionId": {
-                                  "type": "string",
-                                  "format": "uuid",
-                                },
-                                "enrollmentId": {
-                                  "type": "string",
-                                  "format": "uuid",
-                                },
-                                "clientId": {
-                                  "type": "string",
-                                  "format": "uuid",
-                                },
-                                "assessmentId": {
                                   "type": "string",
                                   "format": "uuid",
                                 },
@@ -7805,9 +7812,6 @@ paths:
                         sort: {}
                       assessmentQuestions:
                         - assessmentQuestionId: b4dcd92a-4d6c-44bb-bb07-4431ab48e806
-                          enrollmentId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                          clientId: 9djdd92a-4d6c-44bb-bb07-4431ab12f8k9
-                          assessmentId: 4kjdd92a-4d6c-44bb-bb07-4431ab12fo98
                           assessmentQuestionGroup: location
                           assessmentQuestionOrder: 1
                           assessmentAnswer:  Answer
@@ -7836,6 +7840,13 @@ paths:
           type: string
           format: "uuid"
         description: assessmentQuestion Identifier
+      - name: assessmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: Assessment Identifier
       - name: enrollmentid
         in: path
         required: true
@@ -32287,7 +32298,7 @@ paths:
                                 "houseHoldMembers": {
                                   "type": "array",
                                   "items":{
-                                    
+
                                   }
                                 }
                               }
