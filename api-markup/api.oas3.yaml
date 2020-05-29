@@ -305,6 +305,7 @@ paths:
                         "nameSuffix",
                         "nameDataQuality",
                         "ssn",
+                        "ssnHashed",
                         "ssnHashStatus",
                         "ssnDataQuality",
                         "ssnDataQuality",
@@ -352,6 +353,9 @@ paths:
                         "ssnDataQuality": {
                           "type": "integer"
                         },
+                        "ssnHashed": {
+                          "type": "string",
+                        },
                         "dob": {
                           "type": "integer"
                         },
@@ -395,6 +399,7 @@ paths:
                     nameDataQuality: 1
                     ssn: 123-45-6789
                     ssnHashStatus: 1
+                    ssnHashed: hashedValue
                     ssnDataQuality: 1
                     dob: 1459517834983
                     dobDataQuality: 1
@@ -598,6 +603,7 @@ paths:
                           "nameDataQuality",
                           "ssn",
                           "ssnHashStatus",
+                          "ssnHashed",
                           "ssnDataQuality",
                           "dob",
                           "dobDataQuality",
@@ -614,10 +620,10 @@ paths:
                             "type": "string",
                           },
                           "firstNameHashStatus": {
-                              "type": "string",
+                              "type": "string"
                           },
                           "middleNameHashStatus": {
-                            "type": "string",
+                            "type": "string"
                           },
                           "middleName": {
                             "type": "string",
@@ -626,22 +632,25 @@ paths:
                             "type": "string",
                           },
                           "lastName": {
-                            "type": "string",
+                            "type": "string"
                           },
                           "nameSuffix": {
-                            "type": "string",
+                            "type": "string"
                           },
                           "nameDataQuality": {
                             "type": "integer"
                           },
                           "ssnHashStatus": {
-                            "type": "string",
+                            "type": "string"
                           },
                           "ssn": {
-                            "type": "string",
+                            "type": "string"
                           },
                           "ssnDataQuality": {
                             "type": "integer"
+                          },
+                          "ssnHashed": {
+                             "type": "string"
                           },
                           "dob": {
                             "type": "integer"
@@ -659,16 +668,16 @@ paths:
                             "type": "integer"
                           },
                           "otherGender": {
-                            "type": "string",
+                            "type": "string"
                           },
                           "veteranStatus": {
                             "type": "integer"
                           },
                           "phoneNumber": {
-                            "type": "string",
+                            "type": "string"
                           },
                           "emailAddress": {
-                            "type": "string",
+                            "type": "string"
                           }
                         }
                       }
@@ -685,6 +694,7 @@ paths:
                     nameSuffix: NS
                     nameDataQuality: 1
                     ssn: 123-45-6789
+                    ssnHashed: hashedSSN
                     ssnHashStatus: 1
                     ssnDataQuality: 1
                     dob: 1459517834983
