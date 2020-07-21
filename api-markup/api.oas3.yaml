@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: 2020 HMIS
-  version: "1.0.12"
+  version: "1.0.13"
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
@@ -308,7 +308,6 @@ paths:
                         "ssnHashed",
                         "ssnHashStatus",
                         "ssnDataQuality",
-                        "ssnDataQuality",
                         "dob",
                         "dobDataQuality",
                         "race",
@@ -419,129 +418,147 @@ paths:
           content:
             application/json:
                 schema:
-                  {
-                    "type": "object",
-                    "required": [
-                      "client"
-                    ],
-                    "properties": {
-                      "client": {
-                        "type": "object",
-                        "required": [
-                          "clientId",
-                          "firstName",
-                          "firstNameHashStatus",
-                          "middleName",
-                          "middleNameHashStatus",
-                          "lastName",
-                          "lastNameHashStatus",
-                          "nameSuffix",
-                          "nameDataQuality",
-                          "ssn",
-                          "ssnHashStatus",
-                          "ssnDataQuality",
-                          "dob",
-                          "dobDataQuality",
-                          "race",
-                          "ethnicity",
-                          "gender",
-                          "otherGender",
-                          "veteranStatus",
-                          "phoneNumber",
-                          "emailAddress"
-                        ],
-                        "properties": {
-                          "clientId": {
-                            "type": "string",
-                            "format": "uuid",
-                          },
-                          "firstName": {
-                            "type": "string",
-                          },
-                          "firstNameHashStatus": {
-                              "type": "string",
-                          },
-                          "middleNameHashStatus": {
-                            "type": "string",
-                          },
-                          "middleName": {
-                            "type": "string",
-                          },
-                          "lastNameHashStatus": {
-                            "type": "string",
-                          },
-                          "lastName": {
-                            "type": "string",
-                          },
-                          "nameSuffix": {
-                            "type": "string",
-                          },
-                          "nameDataQuality": {
-                            "type": "integer"
-                          },
-                          "ssnHashStatus": {
-                            "type": "string",
-                          },
-                          "ssn": {
-                            "type": "string",
-                          },
-                          "ssnDataQuality": {
-                            "type": "integer"
-                          },
-                          "dob": {
-                            "type": "integer"
-                          },
-                          "dobDataQuality": {
-                            "type": "integer"
-                          },
-                          "race": {
-                            "type": "integer"
-                          },
-                          "ethnicity": {
-                            "type": "integer"
-                          },
-                          "gender": {
-                            "type": "integer"
-                          },
-                          "otherGender": {
-                            "type": "string",
-                          },
-                          "veteranStatus": {
-                            "type": "string",
-                          },
-                          "phoneNumber": {
-                            "type": "string",
-                          },
-                          "emailAddress": {
-                            "type": "string",
-                          }
-                        }
-                      }
-                    }
-                  }
+                        type: object
+                        properties:
+                          client:
+                            type: object
+                            properties:
+                              links:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - type: object
+                                    properties:
+                                      rel:
+                                        type: string
+                                      href:
+                                        type: string
+                              clientId:
+                                type: string
+                                format: uuid
+                              dedupClientId:
+                                type: string
+                                format: uuid
+                              firstName:
+                                type: string
+                              middleName:
+                                type: string
+                              lastName:
+                                type: string
+                              nameSuffix:
+                                type: string
+                              nameDataQuality:
+                                type: integer
+                              ssn:
+                                type: string
+                              ssnDataQuality:
+                                type: integer
+                              dob:
+                                type: integer
+                              dobDataQuality:
+                                type: integer
+                              race:
+                                type: integer
+                              ethnicity:
+                                type: integer
+                              gender:
+                                type: integer
+                              veteranStatus:
+                                type: string
+                              sourceSystemId:
+                                type: string
+                              clildLinks:
+                                type: object
+                                properties:
+                                  surveySubmissions:
+                                    type: object
+                                    properties:
+                                      data:
+                                        type: array
+                                        items:
+                                          anyOf:
+                                          - type: object
+                                            properties:
+                                              rel:
+                                                type: string
+                                              href:
+                                                type: string
+                                  globalHouseHolds:
+                                    type: object
+                                    properties:
+                                      data:
+                                        type: array
+                                        items:
+                                          anyOf:
+                                          - type: object
+                                            properties:
+                                              rel:
+                                                type: string
+                                              href:
+                                                type: string
+                                  eligibleClients:
+                                    type: object
+                                    properties:
+                                      data:
+                                        type: array
+                                        items:
+                                          anyOf:
+                                          - type: object
+                                            properties:
+                                              rel:
+                                                type: string
+                                              href:
+                                                type: string
+                                  enrollments:
+                                    type: object
+                                    properties:
+                                      data:
+                                        type: array
+                                        items:
+                                          anyOf:
+                                          - type: object
+                                            properties:
+                                              rel:
+                                                type: string
+                                              href:
+                                                type: string
+
                 example:
-                  client:
-                    clientId: 8547a63e-4659-412f-b5fa-200e03b62ae8
-                    firstName: First Name
-                    firstNameHashStatus: 1
-                    middleName: Middle Name
-                    middleNameHashStatus: 1
-                    lastName: LAST NAME
-                    lastNameHashStatus: 1
-                    nameSuffix: NS
-                    nameDataQuality: 1
-                    ssn: 123-45-6789
-                    ssnHashStatus: 1
-                    ssnDataQuality: 1
-                    dob: 1459517834983
-                    dobDataQuality: 1
-                    race: 1
-                    ethnicity: 1
-                    gender: 1
-                    otherGender: Test
-                    veteranStatus: '8'
-                    phoneNumber: 1-541-754-3010
-                    emailAddress: Jeanette@gmail.com
+                    client:
+                      links:
+                      - rel: history
+                        href: "/client/39059154-3c39-43d1-a137-df9a374cdfc1/history"
+                      clientId: 39059154-3c39-43d1-a137-df9a374cdfc1
+                      dedupClientId: 0e2ebdf0-95f2-11ea-b546-02fe61f7863e
+                      firstName: 'Rainstorm                                         '
+                      middleName: "                                                  "
+                      lastName: 'Lace                                              '
+                      nameSuffix: "                                                  "
+                      nameDataQuality: 1
+                      ssn: '101231'
+                      ssnDataQuality: 1
+                      dob: 89856000000
+                      dobDataQuality: 1
+                      race: 1
+                      ethnicity: 0
+                      gender: 0
+                      veteranStatus: '0'
+                      sourceSystemId: '61948'
+                      clildLinks:
+                        surveySubmissions:
+                          data:
+                          - rel: 2832b90d-1931-4f2d-a5cd-d8b289932b30
+                            href: https://api.hslynk.com/survey-api/rest/clients/030522ec-c25e-4b84-b95d-2ae9d5a39af9/surveys/8860fc8b-b127-4811-b458-0ee8840962a9/submissions/2832b90d-1931-4f2d-a5cd-d8b289932b30
+                          - rel: 71d17a8c-fc98-4a69-8e12-ac833c43f6b7
+                            href: https://api.hslynk.com/survey-api/rest/clients/030522ec-c25e-4b84-b95d-2ae9d5a39af9/surveys/8860fc8b-b127-4811-b458-0ee8840962a9/submissions/71d17a8c-fc98-4a69-8e12-ac833c43f6b7
+                          - rel: 57f3108d-2655-45c9-902d-2d7ec0d98a02
+                            href: https://api.hslynk.com/survey-api/rest/clients/030522ec-c25e-4b84-b95d-2ae9d5a39af9/surveys/8860fc8b-b127-4811-b458-0ee8840962a9/submissions/57f3108d-2655-45c9-902d-2d7ec0d98a02
+                        globalHouseHolds:
+                          data:
+                          - rel: 163fe034-162d-426c-b090-cb45c38f438d
+                            href: https://api.hslynk.com/hmis-globalapi/rest/globalhouseholds/163fe034-162d-426c-b090-cb45c38f438d
+                          - rel: 10da724e-bb2f-4094-bf9a-1c4ae1f6d378
+                            href: https://api.hslynk.com/hmis-globalapi/rest/globalhouseholds/10da724e-bb2f-4094-bf9a-1c4ae1f6d378
         '400':
           description: Bad Request   The request was invalid or cannot be served.
         '401':
@@ -7762,6 +7779,13 @@ paths:
           type: string
           format: "uuid"
         description: assessmentQuestion Identifier
+      - name: assessmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: assessment Identifier        
       - name: enrollmentid
         in: path
         required: true
@@ -7897,13 +7921,6 @@ paths:
           type: string
           format: "uuid"
         description: assessmentQuestion Identifier
-      - name: assessmentid
-        in: path
-        required: true
-        schema:
-          type: string
-          format: "uuid"
-        description: Assessment Identifier
       - name: enrollmentid
         in: path
         required: true
@@ -32863,13 +32880,7 @@ paths:
         schema:
           type: string
 components:
-  examples:
-    application/json:
-      id: 38
-      title: T-shirt
-      image:
-        url: images/38.png
-
+  examples: {}
   responses: {}
   parameters: {}
   requestBodies: {}
