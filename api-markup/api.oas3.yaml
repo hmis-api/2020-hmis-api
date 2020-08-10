@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: 2020 HMIS
-  version: "1.0.13"
+  version: "1.0.14"
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
@@ -2197,6 +2197,173 @@ paths:
                                 }
                               }
                             },
+                            "assessments": {
+                              "type": "object",
+                              "required": [
+                                "unspecified_stage"
+                              ],
+                              "properties": {
+                                "unspecified_stage": {
+                                  "type": "object",
+                                  "required": [
+                                    "2018-11-13T00:17",
+                                    "2018-11-15T23:01"
+                                  ],
+                                  "properties": {
+                                    "2018-11-13T00:17": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "2018-11-15T23:01": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "events": {
+                              "type": "object",
+                              "properties": {
+                                "unspecified_stage": {
+                                  "type": "object",
+                                  "required": [
+                                    "2018-11-13T00:17",
+                                    "2018-11-15T23:01"
+                                  ],
+                                  "properties": {
+                                    "2018-11-13T00:17": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "2018-11-15T23:01": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },                            
                             "dateOfEngagements": {
                               "type": "object",
                               "required": [
@@ -2745,6 +2912,20 @@ paths:
                             href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/entryssvfs/ebc3baa6-64dc-4741-b440-dae2047907d0"
                           groupBy: dateUpdated
                   enrollmentLinks:
+                    events:
+                      unspecified_stage:
+                        2020-06-02T20:04:
+                        - data:
+                          - rel: 0092617b-54ae-49d4-97d0-29c98be5bebf
+                            href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/events/0092617b-54ae-49d4-97d0-29c98be5bebf"
+                          groupBy: dateUpdated
+                    assessments:
+                        unspecified_stage:
+                          2020-07-29T03:23:
+                          - data:
+                            - rel: 001a4b33-bd35-4d05-8934-432c0a2e1e7a
+                              href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/assessments/001a4b33-bd35-4d05-8934-432c0a2e1e7a"
+                            groupBy: dateUpdated
                     educations:
                       '1':
                         2018-11-13T00:17:
@@ -12834,6 +13015,14 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}':
     get:
+      parameters:
+      - name: includeChildLinks
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: >-
+          To include exit child entity links in the response this flag must be set true. default value of this flag is false. The exit child entity links, will be grouped by dataCollectionStage and then infromationDate or updatedDate (if informationDate is not available). If dataCollectionStage is not available child entity links will be categorized as unassgined
       responses:
         '200':
           description: OK   Everything is working.
@@ -12877,7 +13066,194 @@ paths:
                           "dateUpdated": {
                             "type": "string",
                             "format": "mm-dd-yyyy",
-                          }
+                          },
+                          "exitLinks": {
+                              "type": "object",
+                              "required": [
+                                "unspecified_stage"
+                              ],
+                              "properties": {
+                                "unspecified_stage": {
+                                  "type": "object",
+                                  "required": [
+                                    "2018-09-25T09:50",
+                                    "2018-09-25T09:51"
+                                  ],
+                                  "properties": {
+                                    "2018-09-25T09:50": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href",
+                                                "exitHousingAssessments"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                },
+                                                "exitHousingAssessments": {
+                                                  "type": "object",
+                                                  "required": [
+                                                    "unspecified_stage"
+                                                  ],
+                                                  "properties": {
+                                                    "unspecified_stage": {
+                                                      "type": "object",
+                                                      "required": [
+                                                        "2018-09-25T09:50"
+                                                      ],
+                                                      "properties": {
+                                                        "2018-09-25T09:50": {
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "object",
+                                                            "required": [
+                                                              "data",
+                                                              "groupBy"
+                                                            ],
+                                                            "properties": {
+                                                              "data": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                  "type": "object",
+                                                                  "required": [
+                                                                    "rel",
+                                                                    "href"
+                                                                  ],
+                                                                  "properties": {
+                                                                    "rel": {
+                                                                      "type": "string",
+                                                                      "format": "uuid",
+                                                                    },
+                                                                    "href": {
+                                                                      "type": "string",
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "groupBy": {
+                                                                "type": "string",
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "2018-09-25T09:51": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href",
+                                                "exitHousingAssessments"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                },
+                                                "exitHousingAssessments": {
+                                                  "type": "object",
+                                                  "required": [
+                                                    "unspecified_stage"
+                                                  ],
+                                                  "properties": {
+                                                    "unspecified_stage": {
+                                                      "type": "object",
+                                                      "required": [
+                                                        "2018-09-25T09:51"
+                                                      ],
+                                                      "properties": {
+                                                        "2018-09-25T09:51": {
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "object",
+                                                            "required": [
+                                                              "data",
+                                                              "groupBy"
+                                                            ],
+                                                            "properties": {
+                                                              "data": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                  "type": "object",
+                                                                  "required": [
+                                                                    "rel",
+                                                                    "href"
+                                                                  ],
+                                                                  "properties": {
+                                                                    "rel": {
+                                                                      "type": "string",
+                                                                      "format": "uuid",
+                                                                    },
+                                                                    "href": {
+                                                                      "type": "string",
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "groupBy": {
+                                                                "type": "string",
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
                         }
                       }
                     }
@@ -12890,6 +13266,41 @@ paths:
                       destination: 6
                       dateCreated: 05-11-2020
                       dateUpdated: 05-11-2020
+                      exitLinks:
+                        unspecified_stage:
+                          2018-09-25T09:50:
+                          - data:
+                            - rel: 28e48aec-82e0-48ff-918b-493825cdea18
+                              href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/28e48aec-82e0-48ff-918b-493825cdea18"
+                              exitHousingAssessments:
+                                unspecified_stage:
+                                  2018-09-25T09:50:
+                                  - data:
+                                    - rel: 2cd01b48-c7e8-4e2a-90ff-144174c60757
+                                      href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/28e48aec-82e0-48ff-918b-493825cdea18/exithousingassessments/2cd01b48-c7e8-4e2a-90ff-144174c60757"
+                                    groupBy: dateUpdated
+                            groupBy: dateUpdated
+                          2018-09-25T09:51:
+                          - data:
+                            - rel: 3ed58fa0-b406-4ee0-86ad-32de911407ad
+                              href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/3ed58fa0-b406-4ee0-86ad-32de911407ad"
+                              exitHousingAssessments:
+                                unspecified_stage:
+                                  2018-09-25T09:51:
+                                  - data:
+                                    - rel: 3bdb1ef3-52e4-4bf7-b492-2a7afb600d47
+                                      href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/3ed58fa0-b406-4ee0-86ad-32de911407ad/exithousingassessments/3bdb1ef3-52e4-4bf7-b492-2a7afb600d47"
+                                    groupBy: dateUpdated
+                            - rel: 473f41ca-4a77-491f-aec8-a9765dff9012
+                              href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/473f41ca-4a77-491f-aec8-a9765dff9012"
+                              exitHousingAssessments:
+                                unspecified_stage:
+                                  2018-09-25T09:51:
+                                  - data:
+                                    - rel: 099359fe-36a3-4d09-9029-35c4b6938e58
+                                      href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/473f41ca-4a77-491f-aec8-a9765dff9012/exithousingassessments/099359fe-36a3-4d09-9029-35c4b6938e58"
+                                    groupBy: dateUpdated
+                            groupBy: dateUpdated
         '400':
           description: Bad Request   The request was invalid or cannot be served.
         '401':
