@@ -1,7 +1,15 @@
 openapi: 3.0.0
 info:
   title: 2020 HMIS
-  version: "1.0.12"
+  version: "1.0.13"
+  contact:
+    name: API Source
+    email: support@hslynk.com
+    url: https://github.com/hmis-api/2020-hmis-api
+  # Name of the license and a URL to the license description.
+  license:
+    name: Open Source License
+    url: https://github.com/hmis-api/2020-hmis-api/blob/master/LICENSE
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
