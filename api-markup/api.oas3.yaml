@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: 2020 HMIS
-  version: "1.0.13"
+  version: "1.0.15"
   contact:
     name: API Source
     email: support@hslynk.com
@@ -316,7 +316,6 @@ paths:
                         "ssnHashed",
                         "ssnHashStatus",
                         "ssnDataQuality",
-                        "ssnDataQuality",
                         "dob",
                         "dobDataQuality",
                         "race",
@@ -427,129 +426,147 @@ paths:
           content:
             application/json:
                 schema:
-                  {
-                    "type": "object",
-                    "required": [
-                      "client"
-                    ],
-                    "properties": {
-                      "client": {
-                        "type": "object",
-                        "required": [
-                          "clientId",
-                          "firstName",
-                          "firstNameHashStatus",
-                          "middleName",
-                          "middleNameHashStatus",
-                          "lastName",
-                          "lastNameHashStatus",
-                          "nameSuffix",
-                          "nameDataQuality",
-                          "ssn",
-                          "ssnHashStatus",
-                          "ssnDataQuality",
-                          "dob",
-                          "dobDataQuality",
-                          "race",
-                          "ethnicity",
-                          "gender",
-                          "otherGender",
-                          "veteranStatus",
-                          "phoneNumber",
-                          "emailAddress"
-                        ],
-                        "properties": {
-                          "clientId": {
-                            "type": "string",
-                            "format": "uuid",
-                          },
-                          "firstName": {
-                            "type": "string",
-                          },
-                          "firstNameHashStatus": {
-                              "type": "string",
-                          },
-                          "middleNameHashStatus": {
-                            "type": "string",
-                          },
-                          "middleName": {
-                            "type": "string",
-                          },
-                          "lastNameHashStatus": {
-                            "type": "string",
-                          },
-                          "lastName": {
-                            "type": "string",
-                          },
-                          "nameSuffix": {
-                            "type": "string",
-                          },
-                          "nameDataQuality": {
-                            "type": "integer"
-                          },
-                          "ssnHashStatus": {
-                            "type": "string",
-                          },
-                          "ssn": {
-                            "type": "string",
-                          },
-                          "ssnDataQuality": {
-                            "type": "integer"
-                          },
-                          "dob": {
-                            "type": "integer"
-                          },
-                          "dobDataQuality": {
-                            "type": "integer"
-                          },
-                          "race": {
-                            "type": "integer"
-                          },
-                          "ethnicity": {
-                            "type": "integer"
-                          },
-                          "gender": {
-                            "type": "integer"
-                          },
-                          "otherGender": {
-                            "type": "string",
-                          },
-                          "veteranStatus": {
-                            "type": "string",
-                          },
-                          "phoneNumber": {
-                            "type": "string",
-                          },
-                          "emailAddress": {
-                            "type": "string",
-                          }
-                        }
-                      }
-                    }
-                  }
+                        type: object
+                        properties:
+                          client:
+                            type: object
+                            properties:
+                              links:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - type: object
+                                    properties:
+                                      rel:
+                                        type: string
+                                      href:
+                                        type: string
+                              clientId:
+                                type: string
+                                format: uuid
+                              dedupClientId:
+                                type: string
+                                format: uuid
+                              firstName:
+                                type: string
+                              middleName:
+                                type: string
+                              lastName:
+                                type: string
+                              nameSuffix:
+                                type: string
+                              nameDataQuality:
+                                type: integer
+                              ssn:
+                                type: string
+                              ssnDataQuality:
+                                type: integer
+                              dob:
+                                type: integer
+                              dobDataQuality:
+                                type: integer
+                              race:
+                                type: integer
+                              ethnicity:
+                                type: integer
+                              gender:
+                                type: integer
+                              veteranStatus:
+                                type: string
+                              sourceSystemId:
+                                type: string
+                              clildLinks:
+                                type: object
+                                properties:
+                                  surveySubmissions:
+                                    type: object
+                                    properties:
+                                      data:
+                                        type: array
+                                        items:
+                                          anyOf:
+                                          - type: object
+                                            properties:
+                                              rel:
+                                                type: string
+                                              href:
+                                                type: string
+                                  globalHouseHolds:
+                                    type: object
+                                    properties:
+                                      data:
+                                        type: array
+                                        items:
+                                          anyOf:
+                                          - type: object
+                                            properties:
+                                              rel:
+                                                type: string
+                                              href:
+                                                type: string
+                                  eligibleClients:
+                                    type: object
+                                    properties:
+                                      data:
+                                        type: array
+                                        items:
+                                          anyOf:
+                                          - type: object
+                                            properties:
+                                              rel:
+                                                type: string
+                                              href:
+                                                type: string
+                                  enrollments:
+                                    type: object
+                                    properties:
+                                      data:
+                                        type: array
+                                        items:
+                                          anyOf:
+                                          - type: object
+                                            properties:
+                                              rel:
+                                                type: string
+                                              href:
+                                                type: string
+
                 example:
-                  client:
-                    clientId: 8547a63e-4659-412f-b5fa-200e03b62ae8
-                    firstName: First Name
-                    firstNameHashStatus: 1
-                    middleName: Middle Name
-                    middleNameHashStatus: 1
-                    lastName: LAST NAME
-                    lastNameHashStatus: 1
-                    nameSuffix: NS
-                    nameDataQuality: 1
-                    ssn: 123-45-6789
-                    ssnHashStatus: 1
-                    ssnDataQuality: 1
-                    dob: 1459517834983
-                    dobDataQuality: 1
-                    race: 1
-                    ethnicity: 1
-                    gender: 1
-                    otherGender: Test
-                    veteranStatus: '8'
-                    phoneNumber: 1-541-754-3010
-                    emailAddress: Jeanette@gmail.com
+                    client:
+                      links:
+                      - rel: history
+                        href: "/client/39059154-3c39-43d1-a137-df9a374cdfc1/history"
+                      clientId: 39059154-3c39-43d1-a137-df9a374cdfc1
+                      dedupClientId: 0e2ebdf0-95f2-11ea-b546-02fe61f7863e
+                      firstName: 'Rainstorm                                         '
+                      middleName: "                                                  "
+                      lastName: 'Lace                                              '
+                      nameSuffix: "                                                  "
+                      nameDataQuality: 1
+                      ssn: '101231'
+                      ssnDataQuality: 1
+                      dob: 89856000000
+                      dobDataQuality: 1
+                      race: 1
+                      ethnicity: 0
+                      gender: 0
+                      veteranStatus: '0'
+                      sourceSystemId: '61948'
+                      clildLinks:
+                        surveySubmissions:
+                          data:
+                          - rel: 2832b90d-1931-4f2d-a5cd-d8b289932b30
+                            href: https://api.hslynk.com/survey-api/rest/clients/030522ec-c25e-4b84-b95d-2ae9d5a39af9/surveys/8860fc8b-b127-4811-b458-0ee8840962a9/submissions/2832b90d-1931-4f2d-a5cd-d8b289932b30
+                          - rel: 71d17a8c-fc98-4a69-8e12-ac833c43f6b7
+                            href: https://api.hslynk.com/survey-api/rest/clients/030522ec-c25e-4b84-b95d-2ae9d5a39af9/surveys/8860fc8b-b127-4811-b458-0ee8840962a9/submissions/71d17a8c-fc98-4a69-8e12-ac833c43f6b7
+                          - rel: 57f3108d-2655-45c9-902d-2d7ec0d98a02
+                            href: https://api.hslynk.com/survey-api/rest/clients/030522ec-c25e-4b84-b95d-2ae9d5a39af9/surveys/8860fc8b-b127-4811-b458-0ee8840962a9/submissions/57f3108d-2655-45c9-902d-2d7ec0d98a02
+                        globalHouseHolds:
+                          data:
+                          - rel: 163fe034-162d-426c-b090-cb45c38f438d
+                            href: https://api.hslynk.com/hmis-globalapi/rest/globalhouseholds/163fe034-162d-426c-b090-cb45c38f438d
+                          - rel: 10da724e-bb2f-4094-bf9a-1c4ae1f6d378
+                            href: https://api.hslynk.com/hmis-globalapi/rest/globalhouseholds/10da724e-bb2f-4094-bf9a-1c4ae1f6d378
         '400':
           description: Bad Request   The request was invalid or cannot be served.
         '401':
@@ -2188,6 +2205,173 @@ paths:
                                 }
                               }
                             },
+                            "assessments": {
+                              "type": "object",
+                              "required": [
+                                "unspecified_stage"
+                              ],
+                              "properties": {
+                                "unspecified_stage": {
+                                  "type": "object",
+                                  "required": [
+                                    "2018-11-13T00:17",
+                                    "2018-11-15T23:01"
+                                  ],
+                                  "properties": {
+                                    "2018-11-13T00:17": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "2018-11-15T23:01": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "events": {
+                              "type": "object",
+                              "properties": {
+                                "unspecified_stage": {
+                                  "type": "object",
+                                  "required": [
+                                    "2018-11-13T00:17",
+                                    "2018-11-15T23:01"
+                                  ],
+                                  "properties": {
+                                    "2018-11-13T00:17": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "2018-11-15T23:01": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },                            
                             "dateOfEngagements": {
                               "type": "object",
                               "required": [
@@ -2736,6 +2920,20 @@ paths:
                             href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/entryssvfs/ebc3baa6-64dc-4741-b440-dae2047907d0"
                           groupBy: dateUpdated
                   enrollmentLinks:
+                    events:
+                      unspecified_stage:
+                        2020-06-02T20:04:
+                        - data:
+                          - rel: 0092617b-54ae-49d4-97d0-29c98be5bebf
+                            href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/events/0092617b-54ae-49d4-97d0-29c98be5bebf"
+                          groupBy: dateUpdated
+                    assessments:
+                        unspecified_stage:
+                          2020-07-29T03:23:
+                          - data:
+                            - rel: 001a4b33-bd35-4d05-8934-432c0a2e1e7a
+                              href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/assessments/001a4b33-bd35-4d05-8934-432c0a2e1e7a"
+                            groupBy: dateUpdated
                     educations:
                       '1':
                         2018-11-13T00:17:
@@ -7770,6 +7968,13 @@ paths:
           type: string
           format: "uuid"
         description: assessmentQuestion Identifier
+      - name: assessmentid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: "uuid"
+        description: assessment Identifier        
       - name: enrollmentid
         in: path
         required: true
@@ -7905,13 +8110,6 @@ paths:
           type: string
           format: "uuid"
         description: assessmentQuestion Identifier
-      - name: assessmentid
-        in: path
-        required: true
-        schema:
-          type: string
-          format: "uuid"
-        description: Assessment Identifier
       - name: enrollmentid
         in: path
         required: true
@@ -12825,6 +13023,14 @@ paths:
         description: Client Identifier
   '/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}':
     get:
+      parameters:
+      - name: includeChildLinks
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: >-
+          To include exit child entity links in the response this flag must be set true. default value of this flag is false. The exit child entity links, will be grouped by dataCollectionStage and then infromationDate or updatedDate (if informationDate is not available). If dataCollectionStage is not available child entity links will be categorized as unassgined
       responses:
         '200':
           description: OK   Everything is working.
@@ -12868,7 +13074,194 @@ paths:
                           "dateUpdated": {
                             "type": "string",
                             "format": "mm-dd-yyyy",
-                          }
+                          },
+                          "exitLinks": {
+                              "type": "object",
+                              "required": [
+                                "unspecified_stage"
+                              ],
+                              "properties": {
+                                "unspecified_stage": {
+                                  "type": "object",
+                                  "required": [
+                                    "2018-09-25T09:50",
+                                    "2018-09-25T09:51"
+                                  ],
+                                  "properties": {
+                                    "2018-09-25T09:50": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href",
+                                                "exitHousingAssessments"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                },
+                                                "exitHousingAssessments": {
+                                                  "type": "object",
+                                                  "required": [
+                                                    "unspecified_stage"
+                                                  ],
+                                                  "properties": {
+                                                    "unspecified_stage": {
+                                                      "type": "object",
+                                                      "required": [
+                                                        "2018-09-25T09:50"
+                                                      ],
+                                                      "properties": {
+                                                        "2018-09-25T09:50": {
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "object",
+                                                            "required": [
+                                                              "data",
+                                                              "groupBy"
+                                                            ],
+                                                            "properties": {
+                                                              "data": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                  "type": "object",
+                                                                  "required": [
+                                                                    "rel",
+                                                                    "href"
+                                                                  ],
+                                                                  "properties": {
+                                                                    "rel": {
+                                                                      "type": "string",
+                                                                      "format": "uuid",
+                                                                    },
+                                                                    "href": {
+                                                                      "type": "string",
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "groupBy": {
+                                                                "type": "string",
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "2018-09-25T09:51": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "required": [
+                                          "data",
+                                          "groupBy"
+                                        ],
+                                        "properties": {
+                                          "data": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "required": [
+                                                "rel",
+                                                "href",
+                                                "exitHousingAssessments"
+                                              ],
+                                              "properties": {
+                                                "rel": {
+                                                  "type": "string",
+                                                  "format": "uuid",
+                                                },
+                                                "href": {
+                                                  "type": "string",
+                                                },
+                                                "exitHousingAssessments": {
+                                                  "type": "object",
+                                                  "required": [
+                                                    "unspecified_stage"
+                                                  ],
+                                                  "properties": {
+                                                    "unspecified_stage": {
+                                                      "type": "object",
+                                                      "required": [
+                                                        "2018-09-25T09:51"
+                                                      ],
+                                                      "properties": {
+                                                        "2018-09-25T09:51": {
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "object",
+                                                            "required": [
+                                                              "data",
+                                                              "groupBy"
+                                                            ],
+                                                            "properties": {
+                                                              "data": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                  "type": "object",
+                                                                  "required": [
+                                                                    "rel",
+                                                                    "href"
+                                                                  ],
+                                                                  "properties": {
+                                                                    "rel": {
+                                                                      "type": "string",
+                                                                      "format": "uuid",
+                                                                    },
+                                                                    "href": {
+                                                                      "type": "string",
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "groupBy": {
+                                                                "type": "string",
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "groupBy": {
+                                            "type": "string",
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
                         }
                       }
                     }
@@ -12881,6 +13274,41 @@ paths:
                       destination: 6
                       dateCreated: 05-11-2020
                       dateUpdated: 05-11-2020
+                      exitLinks:
+                        unspecified_stage:
+                          2018-09-25T09:50:
+                          - data:
+                            - rel: 28e48aec-82e0-48ff-918b-493825cdea18
+                              href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/28e48aec-82e0-48ff-918b-493825cdea18"
+                              exitHousingAssessments:
+                                unspecified_stage:
+                                  2018-09-25T09:50:
+                                  - data:
+                                    - rel: 2cd01b48-c7e8-4e2a-90ff-144174c60757
+                                      href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/28e48aec-82e0-48ff-918b-493825cdea18/exithousingassessments/2cd01b48-c7e8-4e2a-90ff-144174c60757"
+                                    groupBy: dateUpdated
+                            groupBy: dateUpdated
+                          2018-09-25T09:51:
+                          - data:
+                            - rel: 3ed58fa0-b406-4ee0-86ad-32de911407ad
+                              href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/3ed58fa0-b406-4ee0-86ad-32de911407ad"
+                              exitHousingAssessments:
+                                unspecified_stage:
+                                  2018-09-25T09:51:
+                                  - data:
+                                    - rel: 3bdb1ef3-52e4-4bf7-b492-2a7afb600d47
+                                      href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/3ed58fa0-b406-4ee0-86ad-32de911407ad/exithousingassessments/3bdb1ef3-52e4-4bf7-b492-2a7afb600d47"
+                                    groupBy: dateUpdated
+                            - rel: 473f41ca-4a77-491f-aec8-a9765dff9012
+                              href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/473f41ca-4a77-491f-aec8-a9765dff9012"
+                              exitHousingAssessments:
+                                unspecified_stage:
+                                  2018-09-25T09:51:
+                                  - data:
+                                    - rel: 099359fe-36a3-4d09-9029-35c4b6938e58
+                                      href: "/hmis-clientapi/rest/v2020/clients/00ba9b0a-bf0a-411f-9ad3-56194beb9e8a/enrollments/03c9fbfc-a3a0-42f4-b304-3f7dc3ad2113/exits/473f41ca-4a77-491f-aec8-a9765dff9012/exithousingassessments/099359fe-36a3-4d09-9029-35c4b6938e58"
+                                    groupBy: dateUpdated
+                            groupBy: dateUpdated
         '400':
           description: Bad Request   The request was invalid or cannot be served.
         '401':
@@ -32871,13 +33299,7 @@ paths:
         schema:
           type: string
 components:
-  examples:
-    application/json:
-      id: 38
-      title: T-shirt
-      image:
-        url: images/38.png
-
+  examples: {}
   responses: {}
   parameters: {}
   requestBodies: {}
